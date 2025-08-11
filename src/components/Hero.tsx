@@ -25,7 +25,7 @@ const Hero: React.FC = () => {
         setIsLargeScreen(window.innerWidth >= 1024);
       };
 
-      handleResize(); 
+      handleResize();
       window.addEventListener("resize", handleResize);
 
       return () => window.removeEventListener("resize", handleResize);
@@ -53,7 +53,7 @@ const Hero: React.FC = () => {
         >
 
           <span className="text-2xl font-bold text-white lg:text-4xl">
-            Hi, I'm
+            Hi, I&apos;m
           </span>
 
           <motion.a
@@ -101,7 +101,7 @@ const Hero: React.FC = () => {
 
 
           <h2 className="flex text-2xl font-semibold text-white lg:text-4xl">
-            I'M A {" "}
+            I&apos;M A {" "}
             <TypeAnimation
               sequence={roles.flatMap((role) => [role, 1000])}
               wrapper="span"

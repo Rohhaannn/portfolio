@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import React from 'react';
 import { portfolioData } from '../data/portfolioData';
 import { fadeIn } from '../variants';
+import Image from "next/image";
 
 const About: React.FC = () => {
 
@@ -25,7 +26,7 @@ const About: React.FC = () => {
             variants={fadeIn('left', 0.2)}
             viewport={{ once: false, amount: 0.3 }}
           >
-            <img className="w-96 lg:w-72 h-auto rounded-xl shadow-2xl" src={image} alt="Rohan" />
+            <Image className="lg:w-72 h-auto rounded-xl shadow-2xl" src={image} alt="Rohan" width={384} height={390} />
           </motion.div>
 
           <motion.div
@@ -37,7 +38,7 @@ const About: React.FC = () => {
           >
             <div>
               <h6 className="flex sm:text-3xl text-2xl mb-4 pt-4 font-semibold text-[#001b5e]  justify-center md:justify-start">
-                I'm a
+                I&apos;m a
                 <TypeAnimation
                   sequence={roles.flatMap(role => [role, 1000])}
                   wrapper="span"

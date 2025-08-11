@@ -10,6 +10,8 @@ import {
   FaTwitter,
 } from "react-icons/fa";
 import { portfolioData } from '../data/portfolioData';
+import Link from "next/link";
+import Image from "next/image";
 
 
 interface Data {
@@ -57,24 +59,28 @@ const Navbar: React.FC = () => {
         } transition-colors duration-300`}
       >
         {/* Logo */}
-        <a href="/" className="flex items-center space-x-2 mb-1">
+        <Link href="/" className="flex items-center space-x-2 mb-1">
           {darkMode ?
-            <img
-              className="w-15 lg:w-20"
+            <Image
+              className="lg:w-20"
               src="https://project-assets-phi.vercel.app/assets/portfolio-images/logo/rohanWhite.png"
               alt="Logo"
+              width={60}
+              height={60}
             /> :
-            <img
-              className="w-15 lg:w-20"
+            <Image
+              className="lg:w-20"
               src="https://project-assets-phi.vercel.app/assets/portfolio-images/logo/rohanLogo.png"
               alt="Logo"
+              width={60}
+              height={60}
             />}
-        </a>
+        </Link>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center space-x-6 ">
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.name}
               href={item.href}
               onClick={() => setActiveLink(item.name)}
@@ -88,7 +94,7 @@ const Navbar: React.FC = () => {
               {activeLink === item.name && (
                 <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-violet-500 rounded-full" />
               )}
-            </a>
+            </Link>
           ))}
         </nav>
 
@@ -132,7 +138,7 @@ const Navbar: React.FC = () => {
           } rounded-xl shadow-md p-4 space-y-2`}
         >
           {navItems.map((item) => (
-            <a
+            <Link
               key={item.name}
               href={item.href}
               onClick={() => {
@@ -144,7 +150,7 @@ const Navbar: React.FC = () => {
               }`}
             >
               {item.name}
-            </a>
+            </Link>
           ))}
         </div>
       )}
