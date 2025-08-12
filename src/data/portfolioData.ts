@@ -7,7 +7,8 @@ export const portfolioData = {
       "WEB DEVELOPER",
       "FREELANCER",
     ],
-    backgroundImage: "https://project-assets-phi.vercel.app/assets/portfolio-images/bgPortfolio.jpg",
+    backgroundImage:
+      "https://project-assets-phi.vercel.app/assets/portfolio-images/bgPortfolio.jpg",
     socialLinks: {
       twitter: "https://x.com/Pseudo_tsx",
       github: "https://github.com/Rohhaannn",
@@ -26,8 +27,7 @@ export const portfolioData = {
       "Web Developer",
       "Freelancer",
     ],
-    image:
-      "https://project-assets-phi.vercel.app/assets/portfolio-images/cartoonDeveloper.png",
+    image: "https://project-assets-phi.vercel.app/assets/portfolio-images/cartoonDeveloper.png",
   },
 
   skills: {
@@ -70,8 +70,7 @@ export const portfolioData = {
       { id: 1, name: "Vercel" },
       { id: 2, name: "Netlify" },
     ],
-    image:
-      "https://project-assets-phi.vercel.app/assets/portfolio-images/skillsCharacter.svg",
+    image: "https://project-assets-phi.vercel.app/assets/portfolio-images/skillsCharacter.svg",
   },
 
   workExperience: [
@@ -176,8 +175,7 @@ export const portfolioData = {
     major: [
       {
         id: "1",
-        imgLink:
-          "https://project-assets-phi.vercel.app/assets/portfolio-images/mooncart.png",
+        imgLink: "https://project-assets-phi.vercel.app/assets/portfolio-images/mooncart.png",
         title: "MoonCart - E-Commerce Website",
         desc: "Developed a dynamic and responsive e-commerce website using React, featuring modern design, user-friendly navigation, and secure payment integration.",
         githubLink: "https://github.com/Rohhaannn/Mooncart",
@@ -185,28 +183,18 @@ export const portfolioData = {
       },
       {
         id: "2",
-        imgLink:
-          "https://project-assets-phi.vercel.app/assets/portfolio-images/allposts.png",
+        imgLink: "https://project-assets-phi.vercel.app/assets/portfolio-images/allposts.png",
         title: "Blog App",
         desc: "A dynamic React app powered by Vite and Tailwind CSS, integrated with Appwrite backend, enabling users to seamlessly sign up, sign in, and post content.",
         githubLink: "https://github.com/Rohhaannn/React-Blog-App/tree/main/12MegaBlog",
         liveLink: "https://react-blog-app-iota.vercel.app/",
       },
-      {
-        id: "3",
-        imgLink:
-          "https://project-assets-phi.vercel.app/assets/portfolio-images/admin-page.png",
-        title: "School-Dashboard",
-        desc: "A comprehensive school management dashboard for students, teachers, parents, and admins.",
-        githubLink: "https://github.com/Rohhaannn/school-dashboard",
-        liveLink: "https://school-dashboard-ui.vercel.app/",
-      },
+      
     ],
     mini: [
       {
         id: "4",
-        imgLink:
-          "https://project-assets-phi.vercel.app/assets/portfolio-images/virtualR.png",
+        imgLink: "https://project-assets-phi.vercel.app/assets/portfolio-images/virtualR.png",
         title: "VirtualR Landing Page",
         desc: "A modern virtual reality landing page built with React.js and Tailwind CSS.",
         githubLink: "https://github.com/Rohhaannn/VirtualR-Landing-Page",
@@ -214,8 +202,7 @@ export const portfolioData = {
       },
       {
         id: "5",
-        imgLink:
-          "https://project-assets-phi.vercel.app/assets/portfolio-images/githubViewer.png",
+        imgLink: "https://project-assets-phi.vercel.app/assets/portfolio-images/githubViewer.png",
         title: "Github Profile Viewer",
         desc: "Built a GitHub profile viewer app to search and explore GitHub profiles.",
         githubLink: "https://github.com/Rohhaannn/github-profile-viewer",
@@ -223,8 +210,7 @@ export const portfolioData = {
       },
       {
         id: "6",
-        imgLink:
-          "https://project-assets-phi.vercel.app/assets/portfolio-images/todoRedux.png",
+        imgLink: "https://project-assets-phi.vercel.app/assets/portfolio-images/todoRedux.png",
         title: "Todo With Redux-Toolkit",
         desc: "A Todo app built with React and Redux Toolkit for state management.",
         githubLink: "https://github.com/Rohhaannn/Todo--redux-toolkit",
@@ -232,40 +218,33 @@ export const portfolioData = {
       },
       {
         id: "7",
-        imgLink:
-          "https://project-assets-phi.vercel.app/assets/portfolio-images/Todo.png",
+        imgLink: "https://project-assets-phi.vercel.app/assets/portfolio-images/Todo.png",
         title: "Todo with Context & local",
         desc: "A Todo list app using Context API and local storage.",
-        githubLink:
-          "https://github.com/Rohhaannn/react-deployed-projects/tree/main/10todoContextLocal",
+        githubLink: "https://github.com/Rohhaannn/react-deployed-projects/tree/main/10todoContextLocal",
         liveLink: "https://todo-contextlocal.vercel.app/",
       },
       {
         id: "8",
-        imgLink:
-          "https://project-assets-phi.vercel.app/assets/portfolio-images/pswrdGen.png",
+        imgLink: "https://project-assets-phi.vercel.app/assets/portfolio-images/pswrdGen.png",
         title: "Password Generator",
         desc: "Password generator app using React and Tailwind CSS.",
-        githubLink:
-          "https://github.com/Rohhaannn/react-deployed-projects/tree/main/05passwordGenerator",
+        githubLink: "https://github.com/Rohhaannn/react-deployed-projects/tree/main/05passwordGenerator",
         liveLink: "https://password-generator-azure-xi.vercel.app/",
       },
       {
         id: "9",
-        imgLink:
-          "https://project-assets-phi.vercel.app/assets/portfolio-images/currency.png",
+        imgLink: "https://project-assets-phi.vercel.app/assets/portfolio-images/currency.png",
         title: "Currency Convertor",
         desc: "A currency converter app using React and Tailwind CSS.",
-        githubLink:
-          "https://github.com/Rohhaannn/react-deployed-projects/tree/main/06currencyConvertor",
+        githubLink: "https://github.com/Rohhaannn/react-deployed-projects/tree/main/06currencyConvertor",
         liveLink: "https://currency-converter-inky-iota.vercel.app/",
       },
     ],
   },
 
   contact: {
-    image:
-      "https://project-assets-phi.vercel.app/assets/portfolio-images/contact.png",
+    image: "https://project-assets-phi.vercel.app/assets/portfolio-images/contact.png",
     formEndpoint: "https://getform.io/f/bmdpmnna",
   },
 
