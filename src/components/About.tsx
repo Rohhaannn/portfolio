@@ -12,21 +12,21 @@ const About: React.FC = () => {
   const { roles, description, image } = portfolioData.about;
 
   return (
-    <div id="about" className="w-screen ">
+    <div id="about" className="w-screen">
       <div className="max-w-[1280px] mx-auto text-center">
 
-        <h1 className="text-4xl font-bold text-center text-[#001b5e] pt-14 hover:underline cursor-default">About Me</h1>
+        <h1 className="text-4xl font-bold text-center text-[#001b5e] pt-14 hover:underline cursor-default"> About Me </h1>
 
-        <div className="max-w-[1040px] mx-auto flex flex-col gap-8 md:gap-20 md:flex-row items-center p-4 py-16">
+        <div className="max-w-[1040px] mx-auto flex flex-col gap-5 justify-between md:gap-20 md:flex-row items-center p-4 py-10">
 
           <motion.div
-            className="md:w-1/2 flex md:mb-0"
+            className="flex md:mb-0 "
             initial="hidden"
             whileInView={"show"}
             variants={fadeIn('left', 0.2)}
-            viewport={{ once: false, amount: 0.3 }}
+            viewport={{ once: true, amount: 0.0 }}
           >
-            <Image className="lg:w-72 h-auto rounded-xl shadow-2xl" src={image} alt="Rohan" width={384} height={390} />
+            <Image className=" h-auto rounded-xl shadow-xl" src={image} alt="Rohan" width={300} height={400} />
           </motion.div>
 
           <motion.div
@@ -34,7 +34,7 @@ const About: React.FC = () => {
             initial="hidden"
             whileInView={"show"}
             variants={fadeIn('right', 0.2)}
-            viewport={{ once: false, amount: 0.7 }}
+            viewport={{ once: true, amount: 0.7 }}
           >
             <div>
               <h6 className="flex sm:text-3xl text-2xl mb-4 pt-4 font-semibold text-[#001b5e]  justify-center md:justify-start">
