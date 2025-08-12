@@ -1,0 +1,211 @@
+"use client"
+
+import React, { useState, ChangeEvent, FormEvent } from "react";
+import axios from "axios";
+import { z } from "zod";
+import { LuSend, LuCircleCheckBig } from "react-icons/lu";
+import { motion } from "framer-motion";
+import { fadeIn } from "../variants";
+import { portfolioData } from '../data/portfolioData';
+import Image from "next/image";
+
+
+
+
+const contactFormSchema = z.object({
+  name: z.string().min(1, { message: "Name is required." }),
+  contact: z.string().min(1, { message: "Contact number is required." }).regex(/^\d{10}$/, { message: "Contact number must be 10 digits." }),
+  email: z.string().min(1, { message: "Email is required." }).email({ message: "Invalid email address." }),
+  subject: z.string().min(1, { message: "Subject is required." }),
+  msg: z.string().min(1, { message: "Message is required." }),
+});
+
+type FormData = z.infer<typeof contactFormSchema>;
+
+type FormErrors = Partial<Record<keyof FormData, string>> & { general?: string };
+
+const Contact = () => {
+
+  const {image, formEndpoint} = portfolioData.contact;
+
+  const [formData, setFormData] = useState<FormData>({
+    name: "",
+    contact: "",
+    email: "",
+    subject: "",
+    msg: "",
+  });
+  const [successMessage, setSuccessMessage] = useState<string>("");
+  const [errors, setErrors] = useState<FormErrors>({});
+
+  const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+
+    if (errors[name as keyof FormData]) {
+      setErrors((prev) => ({ ...prev, [name as keyof FormData]: undefined }));
+    }
+  };
+
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setSuccessMessage("");
+    setErrors({});
+
+    try {
+      contactFormSchema.parse(formData);
+      await axios.post(formEndpoint, formData);
+      setSuccessMessage("Message sent successfully!");
+      setTimeout(() => setSuccessMessage(""), 3000);
+
+      setFormData({
+        name: "",
+        contact: "",
+        email: "",
+        subject: "",
+        msg: "",
+      });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const newErrors: FormErrors = {};
+        for (const issue of error.issues) {
+          newErrors[issue.path[0] as keyof FormData] = issue.message;
+        }
+        setErrors(newErrors);
+      } else {
+        setErrors({ general: "Failed to send message. Please try again later." });
+      }
+    }
+  };
+
+  return (
+    <div id="contact" className="w-screen mb-16">
+      <div className="max-w-[1280px] mx-auto">
+        <h1 className="text-4xl font-bold text-center text-[#001b5e] mb-2 md:pl-20 hover:underline cursor-default">
+          Connect with Me
+        </h1>
+
+        <div className="max-w-[1040px] mx-auto flex flex-col md:flex-row items-center">
+          <motion.div
+            className="md:w-1/2 flex justify-center md:justify-start mb-2 md:mb-0"
+            initial="hidden"
+            whileInView={"show"}
+            variants={fadeIn('right', 0.1)}
+            viewport={{ once: true, amount: 0.5 }}
+          >
+            <Image
+              src={image}
+              alt="Contact"
+              width={320}
+              height={320}
+              className="w-full max-w-xs md:max-w-sm h-auto mt-10 rounded-xl shadow-xl"
+            />
+          </motion.div>
+
+          {/* Contact Form */}
+          <motion.div
+            className="md:w-3/5 flex flex-col w-full p-4 "
+            initial="hidden"
+            whileInView={"show"}
+            variants={fadeIn('left', 0.1)}
+            viewport={{ once: true, amount: 0.7 }}
+          >
+            <form onSubmit={handleSubmit}>
+              <div className="grid gap-4 w-full py-2">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {["name", "contact"].map((field) => (
+                    <div key={field} className="flex flex-col w-full">
+                      <label htmlFor={field} className={`uppercase text-sm py-2 hover:underline cursor-pointer ${errors[field as keyof FormData] ? "text-red-500" : ""}`}>
+                        {field === "contact" ? "Contact Number" : field.charAt(0).toUpperCase() + field.slice(1)}
+                      </label>
+                      <input
+                        id={field}
+                        className={`border-2 rounded-lg p-3 w-full focus:border-blue-500 focus:outline-none ${errors[field as keyof FormData] ? "border-red-500" : "border-gray-300 shadow-lg"}`}
+                        type="text"
+                        name={field}
+                        maxLength={field === "contact" ? 10 : undefined}
+                        value={formData[field as keyof FormData]}
+                        onChange={handleChange}
+                      />
+                      {errors[field as keyof FormData] && (
+                        <p className="text-red-500 text-sm mt-1">{errors[field as keyof FormData]}</p>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                {["email", "subject"].map((field) => (
+                  <div key={field} className="flex flex-col w-full mx-auto">
+                    <label htmlFor={field} className={`uppercase text-sm py-1 hover:underline cursor-pointer ${errors[field as keyof FormData] ? "text-red-500" : ""}`}>
+                      {field.charAt(0).toUpperCase() + field.slice(1)}
+                    </label>
+                    <input
+                      id={field}
+                      className={`border-2 rounded-lg p-3 w-full focus:border-blue-500 focus:outline-none ${errors[field as keyof FormData] ? "border-red-500" : "border-gray-300 shadow-lg"}`}
+                      type={field === "email" ? "email" : "text"}
+                      name={field}
+                      value={formData[field as keyof FormData]}
+                      onChange={handleChange}
+                    />
+                    {errors[field as keyof FormData] && (
+                      <p className="text-red-500 text-sm mt-1">{errors[field as keyof FormData]}</p>
+                    )}
+                  </div>
+                ))}
+
+                {/* Message field */}
+                <div className="flex flex-col w-full mx-auto">
+                  <label htmlFor="msg" className={`uppercase text-sm py-2 hover:underline cursor-pointer ${errors.msg ? "text-red-500" : ""}`}>Message</label>
+                  <textarea
+                    id="msg"
+                    className={`border-2 rounded-lg p-3 w-full focus:border-blue-500 focus:outline-none ${errors.msg ? "border-red-500" : "border-gray-300 shadow-lg"}`}
+                    rows={5}
+                    name="msg"
+                    value={formData.msg}
+                    onChange={handleChange}
+                  />
+                  {errors.msg && (
+                    <p className="text-red-500 text-sm mt-1">{errors.msg}</p>
+                  )}
+                </div>
+              </div>
+
+              <motion.button
+                type="submit"
+                className=" flex flex-row gap-2 justify-center items-center bg-blue-800 text-gray-100 shadow-2xl mt-4 w-full p-4 rounded-2xl hover:bg-blue-600"
+                initial={{ scale: 0.5 }}
+                whileInView={{
+                  scale: 1,
+                  transition: {
+                    duration: 0.4, ease: "easeInOut"
+                  }
+                }}
+                whileTap={{
+                  scale: 0.95,
+                  transition: {
+                    duration: 0.0
+                  }
+                }}
+              >
+                <LuSend size={20} />
+                Send Message
+              </motion.button>
+
+              {successMessage && (
+                <p className="flex flex-row gap-2 bg-green-500 mt-4 justify-center items-center text-center text-white py-2 rounded-xl border border-white"> <LuCircleCheckBig size={16} /> {successMessage}</p>
+              )}
+              {errors.general && (
+                <p className="text-red-500 mt-2 text-center">{errors.general}</p>
+              )}
+            </form>
+          </motion.div>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Contact;
