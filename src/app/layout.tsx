@@ -1,27 +1,39 @@
-"use client"
+import type { Metadata } from "next";
+import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { motion, useScroll } from "framer-motion";
 import GoToTopBtn from "@/components/GoToTopBtn";
 import ViewResumeBtn from "@/components/ViewResumeBtn";
+import ScrollProgressBar from "./ScrollProgressBar";
+
+const geistSans = Geist({
+  variable: "--font-geist-sans",
+  subsets: ["latin"],
+});
+
+const geistMono = Geist_Mono({
+  variable: "--font-geist-mono",
+  subsets: ["latin"],
+});
+
+export const metadata: Metadata = {
+  title: "Rohan - Frontend Developer",
+  description: "NEXT Js Application",
+};
 
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const {scrollYProgress} = useScroll();
   return (
     <html lang="en" suppressHydrationWarning>
-      <body>
-          <motion.div
-            style={{
-              scaleX: scrollYProgress,
-            }}
-            className='bg-blue-600 origin-left w-full h-1.5 fixed top-0 left-0 z-[999]'
-          />
-          {children}
-          <GoToTopBtn/>
-          <ViewResumeBtn/>
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
+        <ScrollProgressBar /> {/* Use the new component */}
+        {children}
+        <GoToTopBtn />
+        <ViewResumeBtn />
       </body>
     </html>
   );
