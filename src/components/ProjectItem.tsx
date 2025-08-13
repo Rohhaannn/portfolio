@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import React from 'react';
 import { LuArrowUpRight } from 'react-icons/lu';
 
@@ -7,17 +8,18 @@ interface ProjectItemProps {
   desc: string;
   githubLink: string;
   liveLink: string;
-  className: string;
 }
 
-const ProjectItem: React.FC<ProjectItemProps> = ({ img, title, desc, githubLink, liveLink, className }) => {
+const ProjectItem: React.FC<ProjectItemProps> = ({ img, title, desc, githubLink, liveLink }) => {
   return (
     <div className='flex justify-center'>
       <div className='lg:w-[320px] w-[270px] h-[420px] rounded-xl border lg:hover:scale-105 transition-transform bg-white border-gray-300 p-2 flex flex-col shadow-lg overflow-hidden'>
         {img && (
-          <img
+          <Image
             src={img}
             alt={title}
+            width={200}
+            height={200}
             className='h-[200px] w-full rounded-t-md object-cover'
             loading='lazy'
           />
