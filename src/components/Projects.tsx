@@ -31,7 +31,7 @@ const customScrollbarStyles = `
 
 const Projects: React.FC = () => {
 
-  const [filter, setFilter] = useState<'major' | 'mini' | 'all'>('major');
+  const [filter, setFilter] = useState<'major' | 'mini' | 'all'>('all');
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [cardWidth, setCardWidth] = useState<number>(0);
 
