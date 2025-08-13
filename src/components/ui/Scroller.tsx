@@ -51,16 +51,22 @@ interface ScrollVelocityProps {
 function useElementWidth<T extends HTMLElement>(
   ref: React.RefObject<T | null>
 ): number {
-  const [width, setWidth] = useState(0);
+  const [width, setWidth] = useState<number>(0);
 
   useLayoutEffect(() => {
+    if (typeof window === "undefined") {
+      return;
+    }
+
     function updateWidth() {
       if (ref.current) {
         setWidth(ref.current.offsetWidth);
       }
     }
+
     updateWidth();
     window.addEventListener("resize", updateWidth);
+
     return () => window.removeEventListener("resize", updateWidth);
   }, [ref]);
 
