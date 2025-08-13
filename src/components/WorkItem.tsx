@@ -1,11 +1,11 @@
 import React from 'react';
-import { motion } from "framer-motion"; // 'motion/react' is not a valid import path. 'framer-motion' is the correct package name.
-import { fadeIn } from "../variants"; // Assuming this is a custom file with animation variants.
+import { motion } from "framer-motion";
+import { fadeIn } from "../variants";
 
-// Define the type for the year prop, which can be a string or an object with start/end strings.
+
 type YearType = string | { start: string; end: string };
 
-// Define the props interface for the WorkItem component.
+
 interface WorkItemProps {
   year?: YearType;
   company: string;
