@@ -58,9 +58,15 @@ const Work = () => {
   return (
     <div className="w-screen bg-[#ebeeee] cursor-default ">
       <div id="work" className="max-w-[1280px] mx-auto px-4 ">
-        <h1 className="text-4xl mb-10 font-bold text-center text-[#001b5e] hover:underline cursor-default">
+        <motion.h1
+          className="text-4xl mb-10 font-bold text-center text-[#001b5e] hover:underline cursor-default"
+          initial="hidden"
+          whileInView={"show"}
+          variants={fadeIn('up', 0.2)}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           Work Experience
-        </h1>
+        </motion.h1>
 
         {workExperience.map((item) => {
           const startDate = item.year.start;
@@ -75,7 +81,7 @@ const Work = () => {
               initial="hidden"
               whileInView={"show"}
               variants={fadeIn("up", 0.2)}
-              viewport={{ once: true, amount: 0.0 }}
+              viewport={{ once: true, amount: 0.2 }}
             >
               <WorkItem
                 year={`${formattedStart} - ${formattedEnd}`}

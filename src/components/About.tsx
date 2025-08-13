@@ -15,16 +15,23 @@ const About: React.FC = () => {
     <div id="about" className="w-screen">
       <div className="max-w-[1280px] mx-auto text-center">
 
-        <h1 className="text-4xl font-bold text-center text-[#001b5e] pt-14 hover:underline cursor-default"> About Me </h1>
+        <motion.h1
+          className="text-4xl font-bold text-center text-[#001b5e] pt-14 hover:underline cursor-default"
+          initial="hidden"
+          whileInView={"show"}
+          variants={fadeIn('up', 0.2)}
+          viewport={{ once: true, amount: 0.1 }}
+        >
+          About Me
+        </motion.h1>
 
         <div className="max-w-[1040px] mx-auto flex flex-col gap-5 justify-between md:gap-20 md:flex-row items-center p-4 py-10">
-
           <motion.div
             className="flex md:mb-0 "
             initial="hidden"
             whileInView={"show"}
             variants={fadeIn('left', 0.2)}
-            viewport={{ once: true, amount: 0.0 }}
+            viewport={{ once: true, amount: 0.1 }}
           >
             <Image className=" h-auto rounded-xl shadow-xl" src={image} alt="Rohan" width={300} height={400} />
           </motion.div>

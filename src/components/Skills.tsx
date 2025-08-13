@@ -48,18 +48,24 @@ const Skills: React.FC = () => {
 
   return (
     <div id="skills" className="bg-[#ebeeee] px-4 ">
-      <motion.div
-        initial="hidden"
-        whileInView={"show"}
-        variants={fadeIn('left', 0.2)}
-        viewport={{ once: true, amount: 0.0 }}
-        className="max-w-[1280px] mx-auto p-4"
-      >
-        <h1 className="text-4xl mb-10 font-bold text-center text-[#001b5e] hover:underline cursor-default">
+      <div className="max-w-[1280px] mx-auto p-4">
+        <motion.h1
+          className="text-4xl mb-10 font-bold text-center text-[#001b5e] hover:underline cursor-default"
+          initial="hidden"
+          whileInView={"show"}
+          variants={fadeIn('up', 0.2)}
+          viewport={{ once: true, amount: 0.1 }}
+        >
           Skills
-        </h1>
+        </motion.h1>
 
-        <div className="flex flex-col md:flex-row md:justify-center items-center gap-12 md:gap-36">
+        <motion.div
+          className="flex flex-col md:flex-row md:justify-center items-center gap-12 md:gap-36"
+          initial="hidden"
+          whileInView={"show"}
+          variants={fadeIn('left', 0.2)}
+          viewport={{ once: true, amount: 0.2 }}
+        >
 
           <div className="order-2 md:order-1 w-full md:w-auto text-center">
             <div>
@@ -86,8 +92,8 @@ const Skills: React.FC = () => {
               height={320}
             />
           </div>
-        </div>
-      </motion.div>
+        </motion.div>
+      </div>
     </div>
   );
 };

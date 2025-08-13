@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
               <motion.div
                 className="cursor-pointer border border-white text-xl lg:text-2xl p-4 rounded-2xl hover:border hover:border-[#01D293] hover:text-[#01D293] hover:scale-110 transition-transform duration-200"
                 initial={{ scale: 0.5 }}
-                whileInView={{ scale: 1, transition: { duration: 0.3, ease: "easeInOut"} }}
+                whileInView={{ scale: 1, transition: { duration: 0.2, ease: "easeInOut"} }}
               >
                 {getSocialIconComponent(item.type, 25)}
               </motion.div>

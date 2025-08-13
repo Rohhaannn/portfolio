@@ -51,6 +51,13 @@ const Navbar: React.FC = () => {
     { name: "Contact", href: "#contact" },
   ];
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
     <header className="fixed w-full top-4 z-50 px-4">
       <div
@@ -67,6 +74,7 @@ const Navbar: React.FC = () => {
               alt="Logo"
               width={60}
               height={60}
+              onClick={scrollToTop}
             /> :
             <Image
               className="lg:w-20"
@@ -74,6 +82,7 @@ const Navbar: React.FC = () => {
               alt="Logo"
               width={60}
               height={60}
+              onClick={scrollToTop}
             />}
         </Link>
 

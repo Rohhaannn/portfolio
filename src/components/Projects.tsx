@@ -141,16 +141,24 @@ const Projects: React.FC = () => {
     <div className='w-full '>
       <div className='max-w-[1280px] mx-auto'>
         <style>{customScrollbarStyles}</style>
-        <motion.div
-          id='projects'
-          initial="hidden"
-          whileInView={"show"}
-          variants={fadeIn('right', 0.2)}
-          viewport={{ once: true, amount: 0.0}}
-        >
-          <h1 className='text-4xl mb-10 font-bold text-center text-[#001b5e] hover:underline cursor-default'>Projects</h1>
+        <div id='projects'>
+          <motion.h1
+            className='text-4xl mb-10 font-bold text-center text-[#001b5e] hover:underline cursor-default'
+            initial="hidden"
+            whileInView={"show"}
+            variants={fadeIn('up', 0.2)}
+            viewport={{ once: true, amount: 0.1 }}
+          >
+              Projects
+          </motion.h1>
 
-          <div className='relative flex justify-center items-center mb-2'>
+          <motion.div
+            className='relative flex justify-center items-center mb-2'
+            initial="hidden"
+            whileInView={"show"}
+            variants={fadeIn('left', 0.2)}
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <button
               onClick={() => setFilter('all')}
               className={`mx-2 p-2 px-3 rounded-lg transition-all duration-100 ease-in-out text-sm
@@ -172,9 +180,15 @@ const Projects: React.FC = () => {
             >
               Mini Projects
             </button>
-          </div>
+          </motion.div>
 
-          <div className='relative flex justify-center items-center'>
+          <motion.div
+            className='relative flex justify-center items-center'
+            initial="hidden"
+            whileInView={"show"}
+            variants={fadeIn('right', 0.2)}
+            viewport={{ once: true, amount: 0.2 }}
+          >
             <button
               onClick={scrollLeft}
               disabled={!canScrollLeft}
@@ -220,8 +234,9 @@ const Projects: React.FC = () => {
             >
               <LuChevronRight size={25} className='text-gray-700' />
             </button>
-          </div>
-        </motion.div>
+          </motion.div>
+
+        </div>
       </div>
     </div>
   );

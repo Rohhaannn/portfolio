@@ -10,8 +10,6 @@ import { portfolioData } from '../data/portfolioData';
 import Image from "next/image";
 
 
-
-
 const contactFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required." }),
   contact: z.string().min(1, { message: "Contact number is required." }).regex(/^\d{10}$/, { message: "Contact number must be 10 digits." }),
@@ -84,9 +82,15 @@ const Contact = () => {
   return (
     <div id="contact" className="w-screen mb-16">
       <div className="max-w-[1280px] mx-auto">
-        <h1 className="text-4xl font-bold text-center text-[#001b5e] mb-2 md:pl-20 hover:underline cursor-default">
+        <motion.h1
+          className="text-4xl font-bold text-center text-[#001b5e] mb-2 md:pl-20 hover:underline cursor-default"
+          initial="hidden"
+          whileInView={"show"}
+          variants={fadeIn('up', 0.2)}
+          viewport={{ once: true, amount: 0.2 }}
+        >
           Connect with Me
-        </h1>
+        </motion.h1>
 
         <div className="max-w-[1040px] mx-auto flex flex-col md:flex-row items-center">
           <motion.div
@@ -94,7 +98,7 @@ const Contact = () => {
             initial="hidden"
             whileInView={"show"}
             variants={fadeIn('right', 0.1)}
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             <Image
               src={image}
@@ -111,7 +115,7 @@ const Contact = () => {
             initial="hidden"
             whileInView={"show"}
             variants={fadeIn('left', 0.1)}
-            viewport={{ once: true, amount: 0.7 }}
+            viewport={{ once: true, amount: 0.3 }}
           >
             <form onSubmit={handleSubmit}>
               <div className="grid gap-4 w-full py-2">
