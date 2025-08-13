@@ -15,40 +15,27 @@ import Footer from '@/components/Footer'
 const page = () => {
 
   return (
-    <div className='flex flex-col overflow-x-hidden'>
+    <div className='flex flex-col justify-center overflow-x-hidden'>
       <Navbar/>
-
       <Hero/>
-
       <About/>
-
       <SvgDivider/>
-
       <Skills/>
-
       <div className='scale-y-[-1] scale-x-[-1]'>
         <SvgDivider2/>
       </div>
-
       <Projects/>
-
       <SvgDivider3/>
-
       <Work/>
-
       <div className='scale-y-[-1]'>
         <SvgDivider/>
       </div>
-
       <Contact/>
-
       <ScrollVelocity
         texts={[" Let's Connect! "]}
         className="custom-scroll-text"
       />
-
       <Footer/>
-
     </div>
   )
 }
