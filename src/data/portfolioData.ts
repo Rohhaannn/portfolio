@@ -189,7 +189,15 @@ export const portfolioData = {
         githubLink: "https://github.com/Rohhaannn/React-Blog-App/tree/main/12MegaBlog",
         liveLink: "https://react-blog-app-iota.vercel.app/",
       },
-      
+      {
+        id: "3",
+        imgLink: "https://project-assets-phi.vercel.app/assets/portfolio-images/admin-page.png",
+        title: "School-Dashboard",
+        desc: "A comprehensive school management dashboard for students, teachers, parents, and admins.",
+        githubLink: "https://github.com/Rohhaannn/school-dashboard",
+        liveLink: "https://school-dashboard-ui.vercel.app/",
+      },
+
     ],
     mini: [
       {
