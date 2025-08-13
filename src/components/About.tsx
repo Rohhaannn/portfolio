@@ -30,14 +30,14 @@ const About: React.FC = () => {
           </motion.div>
 
           <motion.div
-            className="md:w-1/2 text-center md:text-left px-6"
+            className="md:w-1/2 text-center md:text-left"
             initial="hidden"
             whileInView={"show"}
             variants={fadeIn('right', 0.2)}
             viewport={{ once: true, amount: 0.7 }}
           >
             <div>
-              <h6 className="flex sm:text-3xl text-2xl mb-4 pt-4 font-semibold text-[#001b5e]  justify-center md:justify-start">
+              <h6 className="flex sm:text-3xl text-2xl mb-4 pt-4 font-semibold text-[#001b5e] justify-center md:justify-start">
                 I&apos;m a
                 <TypeAnimation
                   sequence={roles.flatMap(role => [role, 1000])}
@@ -54,7 +54,7 @@ const About: React.FC = () => {
             </div>
 
             <div className="px-4 lg:px-0">
-              <p className="lg:w-[600px] w-80 text-base text-justify ">{description}</p>
+              <p className="text-base text-justify ">{description}</p>
             </div>
           </motion.div>
 
