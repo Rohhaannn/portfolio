@@ -1,39 +1,27 @@
 "use client"
 
 import React from "react";
-import { motion } from "framer-motion"; // Use framer-motion, not motion/react
-import { fadeIn } from "../variants"; // Assuming this is a local variants file
+import { motion } from "framer-motion";
+import { fadeIn } from "../variants";
 import WorkItem from "./WorkItem";
-import { portfolioData } from "../data/portfolioData"; // Corrected data import as requested
+import { portfolioData } from "../data/portfolioData";
 
-// 1. Corrected interface for the work experience data structure
-// The 'id' property is now defined as a string to match the incoming data.
+
 interface WorkExperience {
-  id: string; // <-- This is the fix. It should be a string, not a number.
+  id: string;
   company: string;
   role: string;
   location: string;
   year: {
     start: string;
-    end?: string; // end is optional because it can be "Present"
+    end?: string;
   };
-  description: string[]; // <-- This is also a correction based on the WorkItem component.
+  description: string[];
   techStack: string[];
 }
 
-// 2. Define an interface for the WorkItem component props
-// This ensures that the props passed to WorkItem are of the correct type
-interface IWorkItemProps {
-  year: string;
-  company: string;
-  role: string;
-  location: string;
-  duration: string;
-  description: string[]; // <-- This should be an array of strings.
-  techStack: string[];
-}
 
-// Helper function to calculate the duration of a work period
+
 const calculateDuration = (start: string, end: string): string => {
   const startDate = new Date(start);
   const endDate = end === "Present" ? new Date() : new Date(end);
@@ -52,7 +40,6 @@ const calculateDuration = (start: string, end: string): string => {
   return parts.length > 0 ? parts.join(" and ") : "Less than a month";
 };
 
-// Helper function to format the date for display
 const formatDisplayDate = (date: string): string => {
   if (date === "Present") return "Present";
   const d = new Date(date);
@@ -63,10 +50,9 @@ const formatDisplayDate = (date: string): string => {
   return d.toLocaleDateString("en-US", options);
 };
 
-// 3. The main Work component, now with TypeScript
+
 const Work = () => {
-  // 4. Cast the imported data to the WorkExperience interface array for type safety
-  // This is now valid because the WorkExperience interface matches the data structure.
+
   const workExperience: WorkExperience[] = portfolioData.workExperience;
 
   return (
@@ -83,7 +69,6 @@ const Work = () => {
           const formattedEnd = formatDisplayDate(endDate);
           const duration = calculateDuration(startDate, endDate);
 
-          // We now have strong typing for the props passed to WorkItem
           return (
             <motion.div
               key={item.id}
