@@ -145,13 +145,32 @@ const Navbar: React.FC = () => {
                 setActiveLink(item.name);
                 setNavOpen(false);
               }}
-              className={`block w-full text-left px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700 ${
+              className={`block w-full text-center px-2 py-1 rounded hover:bg-gray-100 dark:hover:bg-gray-700 ${
                 activeLink === item.name ? "font-semibold" : ""
               }`}
             >
               {item.name}
             </Link>
           ))}
+          <div
+            className={`flex flex-col gap-2 text-xl items-center space-x-3 rounded-lg backdrop-blur-lg px-4 py-2 ${
+              darkMode ? "bg-black/50 text-white" : "" } transition-colors duration-300`}
+          >
+            <div className="flex items-center justify-around gap-14 cursor-pointer ">
+              <a href={socialLinks.twitter} target="_blank" className="w-5 h-5 mt-1">
+                <FaTwitter size={14} />
+              </a>
+              <a href={socialLinks.github} target="_blank" className="w-5 h-5 mt-1">
+                <FaGithub size={14} />
+              </a>
+              <a href={socialLinks.linkedin} target="_blank" className="w-5 h-5 mt-1">
+                <FaLinkedin size={14} />
+              </a>
+              <a href={socialLinks.discord} target="_blank" className="w-5 h-5 mt-1">
+                <FaDiscord size={14} />
+              </a>
+            </div>
+          </div>
         </div>
       )}
     </header>
