@@ -6,6 +6,7 @@ import ProjectItem from './ProjectItem';
 import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
+import { div } from 'framer-motion/client';
 
 interface Project {
   id: number;
@@ -192,15 +193,18 @@ const Projects: React.FC = () => {
             >
               {filteredProjects.length > 0 ? (
                 filteredProjects.map((project) => (
-                  <ProjectItem
+                  <div
                     key={project.id}
+                    className={`flex-shrink-0 w-[calc(100vw-48px)] sm:w-[340px] md:w-[300px] lg:w-[350px] xl:w-[400px] ${!addContainerPadding() ? 'mx-6' : ''}`}
+                  >
+                    <ProjectItem
                     img={project.imgLink}
                     title={project.title}
                     desc={project.desc}
                     githubLink={project.githubLink}
                     liveLink={project.liveLink}
-                    className={`flex-shrink-0 w-[calc(100vw-48px)] sm:w-[340px] md:w-[300px] lg:w-[350px] xl:w-[400px] ${!addContainerPadding() ? 'mx-6' : ''}`}
                   />
+                  </div>
                 ))
               ) : (
                 <p className="text-center text-gray-600 w-full">No projects found for this category.</p>
