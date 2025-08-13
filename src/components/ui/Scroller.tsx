@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useRef, useLayoutEffect, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   motion,
   useScroll,
@@ -11,6 +11,7 @@ import {
   useAnimationFrame,
 } from "motion/react";
 import './ScrollVelocity.css'
+
 
 
 interface VelocityMapping {
@@ -53,10 +54,8 @@ function useElementWidth<T extends HTMLElement>(
 ): number {
   const [width, setWidth] = useState<number>(0);
 
-  useLayoutEffect(() => {
-    if (typeof window === "undefined") {
-      return;
-    }
+  useEffect(() => {
+    if (typeof window === "undefined") return;
 
     function updateWidth() {
       if (ref.current) {
@@ -66,7 +65,6 @@ function useElementWidth<T extends HTMLElement>(
 
     updateWidth();
     window.addEventListener("resize", updateWidth);
-
     return () => window.removeEventListener("resize", updateWidth);
   }, [ref]);
 

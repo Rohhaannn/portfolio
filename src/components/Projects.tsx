@@ -1,12 +1,11 @@
-"use client"
+'use client';
 
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { portfolioData } from "../data/portfolioData";
+import { portfolioData } from '../data/portfolioData';
 import ProjectItem from './ProjectItem';
-import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
-import { motion } from "framer-motion";
-import { fadeIn } from "../variants";
-import { div } from 'framer-motion/client';
+import { LuChevronLeft, LuChevronRight } from 'react-icons/lu';
+import { motion } from 'framer-motion';
+import { fadeIn } from '../variants';
 
 interface Project {
   id: number;
@@ -30,58 +29,74 @@ const customScrollbarStyles = `
 `;
 
 const Projects: React.FC = () => {
-
   const [filter, setFilter] = useState<'major' | 'mini' | 'all'>('all');
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [cardWidth, setCardWidth] = useState<number>(0);
 
   const [canScrollLeft, setCanScrollLeft] = useState<boolean>(false);
   const [canScrollRight, setCanScrollRight] = useState<boolean>(false);
+  const [isMobile, setIsMobile] = useState<boolean>(false);
 
-
-  const majorProjects = portfolioData.projects.major.map(project => ({
+  const majorProjects = portfolioData.projects.major.map((project) => ({
     ...project,
     id: Number(project.id),
-    type: 'major' as const
+    type: 'major' as const,
   }));
 
-  const miniProjects = portfolioData.projects.mini.map(project => ({
+  const miniProjects = portfolioData.projects.mini.map((project) => ({
     ...project,
     id: Number(project.id),
-    type: 'mini' as const
+    type: 'mini' as const,
   }));
 
-  const allProjects: Project[] = [
-    ...majorProjects,
-    ...miniProjects
-  ];
+  const allProjects: Project[] = [...majorProjects, ...miniProjects];
 
   const filteredProjects =
     filter === 'all'
       ? allProjects
-      : allProjects.filter(project => project.type === filter);
+      : allProjects.filter((project) => project.type === filter);
 
   const checkScrollability = useCallback(() => {
     const container = scrollContainerRef.current;
     if (container) {
       setCanScrollLeft(container.scrollLeft > 0);
-      setCanScrollRight(container.scrollLeft + container.clientWidth < container.scrollWidth - 2);
+      setCanScrollRight(
+        container.scrollLeft + container.clientWidth < container.scrollWidth - 2
+      );
     } else {
       setCanScrollLeft(false);
       setCanScrollRight(false);
     }
   }, []);
 
-  const shouldCenterContent = useCallback(() => {
-    const isMobile = window.innerWidth < 640;
-    return (filter === 'major' && isMobile && filteredProjects.length === 1) ||
-      (filter !== 'all' && !isMobile && filteredProjects.length <= 2);
-  }, [filter, filteredProjects.length]);
 
-  const addContainerPadding = useCallback(() => {
-    const isMobile = window.innerWidth < 640;
-    return !(filter === 'major' && isMobile && filteredProjects.length === 1);
-  }, [filter, filteredProjects.length]);
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 640);
+      checkScrollability();
+      setFilter((prev) => prev);
+    };
+
+    if (typeof window !== 'undefined') {
+      setIsMobile(window.innerWidth < 640);
+      window.addEventListener('resize', handleResize);
+    }
+
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.addEventListener('scroll', checkScrollability);
+      checkScrollability();
+    }
+
+    return () => {
+      if (typeof window !== 'undefined') {
+        window.removeEventListener('resize', handleResize);
+      }
+      if (container) {
+        container.removeEventListener('scroll', checkScrollability);
+      }
+    };
+  }, [checkScrollability]);
 
   useEffect(() => {
     if (scrollContainerRef.current && filteredProjects.length > 0) {
@@ -98,32 +113,11 @@ const Projects: React.FC = () => {
     }
   }, [filter, filteredProjects.length, checkScrollability]);
 
-  useEffect(() => {
-    const container = scrollContainerRef.current;
-
-    const handleFilterResetOnResize = () => {
-      setFilter(prev => prev);
-    };
-
-    if (container) {
-      container.addEventListener('scroll', checkScrollability);
-      window.addEventListener('resize', checkScrollability);
-      window.addEventListener('resize', handleFilterResetOnResize);
-      checkScrollability();
-
-      return () => {
-        container.removeEventListener('scroll', checkScrollability);
-        window.removeEventListener('resize', checkScrollability);
-        window.removeEventListener('resize', handleFilterResetOnResize);
-      };
-    }
-  }, [checkScrollability]);
-
   const scrollLeft = () => {
     if (scrollContainerRef.current && cardWidth > 0) {
       scrollContainerRef.current.scrollBy({
         left: -(cardWidth + 20),
-        behavior: 'smooth'
+        behavior: 'smooth',
       });
     }
   };
@@ -131,61 +125,83 @@ const Projects: React.FC = () => {
   const scrollRight = () => {
     if (scrollContainerRef.current && cardWidth > 0) {
       scrollContainerRef.current.scrollBy({
-        left: (cardWidth + 20),
-        behavior: 'smooth'
+        left: cardWidth + 20,
+        behavior: 'smooth',
       });
     }
   };
 
+  const shouldCenterContent =
+    (filter === 'major' && isMobile && filteredProjects.length === 1) ||
+    (filter !== 'all' && !isMobile && filteredProjects.length <= 2);
+
+  const addContainerPadding = !(
+    filter === 'major' &&
+    isMobile &&
+    filteredProjects.length === 1
+  );
+
   return (
-    <div className='w-full '>
-      <div className='max-w-[1280px] mx-auto'>
+    <div className="w-full ">
+      <div className="max-w-[1280px] mx-auto">
         <style>{customScrollbarStyles}</style>
-        <div id='projects'>
+        <div id="projects">
           <motion.h1
-            className='text-4xl mb-10 font-bold text-center text-[#001b5e] hover:underline cursor-default'
+            className="text-4xl mb-10 font-bold text-center text-[#001b5e] hover:underline cursor-default"
             initial="hidden"
-            whileInView={"show"}
+            whileInView={'show'}
             variants={fadeIn('up', 0.2)}
             viewport={{ once: true, amount: 0.1 }}
           >
-              Projects
+            Projects
           </motion.h1>
 
           <motion.div
-            className='relative flex justify-center items-center mb-2'
+            className="relative flex justify-center items-center mb-2"
             initial="hidden"
-            whileInView={"show"}
+            whileInView={'show'}
             variants={fadeIn('left', 0.2)}
             viewport={{ once: true, amount: 0.2 }}
           >
             <button
               onClick={() => setFilter('all')}
               className={`mx-2 p-2 px-3 rounded-lg transition-all duration-100 ease-in-out text-sm
-                ${filter === 'all' ? 'bg-blue-600 text-white shadow-md' : 'bg-gray-400 text-gray-800 hover:bg-gray-300'}`}
+                ${
+                  filter === 'all'
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'bg-gray-400 text-gray-800 hover:bg-gray-300'
+                }`}
             >
               All
             </button>
             <button
               onClick={() => setFilter('major')}
               className={`mx-2 p-2 px-3 rounded-lg transition-all duration-300 ease-in-out
-                ${filter === 'major' ? 'bg-blue-600 text-white shadow-md' : 'bg-gray-400 text-gray-800 hover:bg-gray-300'}`}
+                ${
+                  filter === 'major'
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'bg-gray-400 text-gray-800 hover:bg-gray-300'
+                }`}
             >
               Major Projects
             </button>
             <button
               onClick={() => setFilter('mini')}
               className={`mx-2 p-2 px-3 rounded-lg transition-all duration-300 ease-in-out
-                ${filter === 'mini' ? 'bg-blue-600 text-white shadow-md' : 'bg-gray-400 text-gray-800 hover:bg-gray-300'}`}
+                ${
+                  filter === 'mini'
+                    ? 'bg-blue-600 text-white shadow-md'
+                    : 'bg-gray-400 text-gray-800 hover:bg-gray-300'
+                }`}
             >
               Mini Projects
             </button>
           </motion.div>
 
           <motion.div
-            className='relative flex justify-center items-center'
+            className="relative flex justify-center items-center"
             initial="hidden"
-            whileInView={"show"}
+            whileInView={'show'}
             variants={fadeIn('right', 0.2)}
             viewport={{ once: true, amount: 0.2 }}
           >
@@ -193,35 +209,43 @@ const Projects: React.FC = () => {
               onClick={scrollLeft}
               disabled={!canScrollLeft}
               className={`absolute left-[-55px] p-2 rounded-xl bg-gray-400 shadow-xl cursor-pointer z-10 transform -translate-y-1/2 top-1/2 transition-colors duration-200 hidden lg:block
-                ${canScrollLeft ? 'hover:bg-transparent hover:border hover:border-black' : 'opacity-50 cursor-not-allowed'}`}
+                ${
+                  canScrollLeft
+                    ? 'hover:bg-transparent hover:border hover:border-black'
+                    : 'opacity-50 cursor-not-allowed'
+                }`}
               aria-label="Scroll left"
             >
-              <LuChevronLeft size={25} className='text-gray-700' />
+              <LuChevronLeft size={25} className="text-gray-700" />
             </button>
 
             <div
               ref={scrollContainerRef}
               className={`flex flex-nowrap w-full h-[500px] gap-5 items-center overflow-x-auto hide-scrollbar scroll-smooth
-                ${shouldCenterContent() ? 'justify-center' : ''}
-                ${addContainerPadding() ? 'px-6' : 'px-0'}`}
+                ${shouldCenterContent ? 'justify-center' : ''}
+                ${addContainerPadding ? 'px-6' : 'px-0'}`}
             >
               {filteredProjects.length > 0 ? (
                 filteredProjects.map((project) => (
                   <div
                     key={project.id}
-                    className={`flex-shrink-0 w-[calc(100vw-48px)] sm:w-[340px] md:w-[300px] lg:w-[350px] xl:w-[400px] ${!addContainerPadding() ? 'mx-6' : ''}`}
+                    className={`flex-shrink-0 w-[calc(100vw-48px)] sm:w-[340px] md:w-[300px] lg:w-[350px] xl:w-[400px] ${
+                      !addContainerPadding ? 'mx-6' : ''
+                    }`}
                   >
                     <ProjectItem
-                    img={project.imgLink}
-                    title={project.title}
-                    desc={project.desc}
-                    githubLink={project.githubLink}
-                    liveLink={project.liveLink}
-                  />
+                      img={project.imgLink}
+                      title={project.title}
+                      desc={project.desc}
+                      githubLink={project.githubLink}
+                      liveLink={project.liveLink}
+                    />
                   </div>
                 ))
               ) : (
-                <p className="text-center text-gray-600 w-full">No projects found for this category.</p>
+                <p className="w-full text-center text-gray-600">
+                  No projects found for this category.
+                </p>
               )}
             </div>
 
@@ -229,13 +253,16 @@ const Projects: React.FC = () => {
               onClick={scrollRight}
               disabled={!canScrollRight}
               className={`absolute right-[-55px] p-2 rounded-xl bg-gray-400 shadow-xl cursor-pointer z-10 transform -translate-y-1/2 top-1/2 transition-colors duration-200 hidden lg:block
-                ${canScrollRight ? 'hover:bg-transparent hover:border hover:border-black' : 'opacity-50 cursor-not-allowed'}`}
+                ${
+                  canScrollRight
+                    ? 'hover:bg-transparent hover:border hover:border-black'
+                    : 'opacity-50 cursor-not-allowed'
+                }`}
               aria-label="Scroll right"
             >
-              <LuChevronRight size={25} className='text-gray-700' />
+              <LuChevronRight size={25} className="text-gray-700" />
             </button>
           </motion.div>
-
         </div>
       </div>
     </div>

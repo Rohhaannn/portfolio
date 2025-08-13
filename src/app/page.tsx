@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
@@ -9,8 +11,13 @@ import Projects from '@/components/Projects'
 import SvgDivider3 from '@/components/ui/divider/SvgDivider3'
 import Work from '@/components/Work'
 import Contact from '@/components/Contact'
-import ScrollVelocity from '@/components/ui/Scroller'
 import Footer from '@/components/Footer'
+import dynamic from "next/dynamic";
+
+
+const ScrollVelocity = dynamic(() => import('@/components/ui/Scroller'), {
+  ssr: false
+});
 
 const page = () => {
 
