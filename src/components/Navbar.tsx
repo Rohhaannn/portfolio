@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-import { BsMoon, BsSun } from "react-icons/bs";
+// import { BsMoon, BsSun } from "react-icons/bs";
 import {
   FaGithub,
   FaLinkedin,
@@ -34,7 +34,7 @@ type NavItem = {
 const Navbar: React.FC = () => {
 
   const [navOpen, setNavOpen] = useState<boolean>(false);
-  const [darkMode, setDarkMode] = useState<boolean>(true);
+  const [darkMode, setDarkMode] = useState<boolean>(false);
   const [activeLink, setActiveLink] = useState<string>("Works");
 
   const toggleNav = (): void => setNavOpen(!navOpen);
@@ -129,9 +129,9 @@ const Navbar: React.FC = () => {
             </div>
           </div>
 
-          <button onClick={toggleDark} className="text-base mb-1">
+          {/* <button onClick={toggleDark} className="text-base mb-1">
             {darkMode ? <BsSun size={14} /> : <BsMoon size={14} />}
-          </button>
+          </button> */}
 
           <button className="md:hidden text-2xl" onClick={toggleNav}>
             {navOpen ? <FiX /> : <FiMenu />}
