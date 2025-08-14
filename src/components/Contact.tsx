@@ -83,7 +83,7 @@ const Contact = () => {
     <div id="contact" className="w-screen mb-16">
       <div className="max-w-[1280px] mx-auto">
         <motion.h1
-          className="text-4xl font-bold text-center text-[#001b5e] mb-2 md:pl-20 hover:underline cursor-default"
+          className="text-4xl font-bold text-center text-[#001b5e] mb-2 md:pl-20 cursor-default"
           initial="hidden"
           whileInView={"show"}
           variants={fadeIn('up', 0.2)}
@@ -111,23 +111,23 @@ const Contact = () => {
 
           {/* Contact Form */}
           <motion.div
-            className="md:w-3/5 flex flex-col w-full p-4 "
+            className="md:w-3/5 flex flex-col w-full p-2 "
             initial="hidden"
             whileInView={"show"}
             variants={fadeIn('left', 0.1)}
             viewport={{ once: true, amount: 0.3 }}
           >
             <form onSubmit={handleSubmit}>
-              <div className="grid gap-4 w-full py-2">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div className="grid gap-2 w-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                   {["name", "contact"].map((field) => (
                     <div key={field} className="flex flex-col w-full">
-                      <label htmlFor={field} className={`uppercase text-sm py-2 hover:underline cursor-pointer ${errors[field as keyof FormData] ? "text-red-500" : ""}`}>
+                      <label htmlFor={field} className={`uppercase text-sm font-medium py-2 hover:underline cursor-pointer ${errors[field as keyof FormData] ? "text-red-500" : ""}`}>
                         {field === "contact" ? "Contact Number" : field.charAt(0).toUpperCase() + field.slice(1)}
                       </label>
                       <input
                         id={field}
-                        className={`border-2 rounded-lg p-3 w-full focus:border-blue-500 focus:outline-none ${errors[field as keyof FormData] ? "border-red-500" : "border-gray-300 shadow-lg"}`}
+                        className={`border-2 rounded-lg p-2 w-full focus:border-blue-500 focus:outline-none ${errors[field as keyof FormData] ? "border-red-500" : "border-gray-300 shadow-lg"}`}
                         type="text"
                         name={field}
                         maxLength={field === "contact" ? 10 : undefined}
@@ -143,12 +143,12 @@ const Contact = () => {
 
                 {["email", "subject"].map((field) => (
                   <div key={field} className="flex flex-col w-full mx-auto">
-                    <label htmlFor={field} className={`uppercase text-sm py-1 hover:underline cursor-pointer ${errors[field as keyof FormData] ? "text-red-500" : ""}`}>
+                    <label htmlFor={field} className={`uppercase text-sm font-medium py-1 hover:underline cursor-pointer ${errors[field as keyof FormData] ? "text-red-500" : ""}`}>
                       {field.charAt(0).toUpperCase() + field.slice(1)}
                     </label>
                     <input
                       id={field}
-                      className={`border-2 rounded-lg p-3 w-full focus:border-blue-500 focus:outline-none ${errors[field as keyof FormData] ? "border-red-500" : "border-gray-300 shadow-lg"}`}
+                      className={`border-2 rounded-lg p-2 w-full focus:border-blue-500 focus:outline-none ${errors[field as keyof FormData] ? "border-red-500" : "border-gray-300 shadow-lg"}`}
                       type={field === "email" ? "email" : "text"}
                       name={field}
                       value={formData[field as keyof FormData]}
@@ -162,11 +162,11 @@ const Contact = () => {
 
                 {/* Message field */}
                 <div className="flex flex-col w-full mx-auto">
-                  <label htmlFor="msg" className={`uppercase text-sm py-2 hover:underline cursor-pointer ${errors.msg ? "text-red-500" : ""}`}>Message</label>
+                  <label htmlFor="msg" className={`uppercase text-sm font-medium py-2 hover:underline cursor-pointer ${errors.msg ? "text-red-500" : ""}`}>Message</label>
                   <textarea
                     id="msg"
-                    className={`border-2 rounded-lg p-3 w-full focus:border-blue-500 focus:outline-none ${errors.msg ? "border-red-500" : "border-gray-300 shadow-lg"}`}
-                    rows={5}
+                    className={`border-2 rounded-lg w-full focus:border-blue-500 focus:outline-none ${errors.msg ? "border-red-500" : "border-gray-300 shadow-lg"}`}
+                    rows={4}
                     name="msg"
                     value={formData.msg}
                     onChange={handleChange}
@@ -179,7 +179,7 @@ const Contact = () => {
 
               <motion.button
                 type="submit"
-                className=" flex flex-row gap-2 justify-center items-center bg-blue-800 text-gray-100 shadow-2xl mt-4 w-full p-4 rounded-2xl hover:bg-blue-600"
+                className=" flex flex-row gap-2 justify-center items-center bg-blue-800 text-gray-100 shadow-2xl mt-4 w-full p-2 rounded-lg hover:bg-blue-600"
                 initial={{ scale: 0.5 }}
                 whileInView={{
                   scale: 1,

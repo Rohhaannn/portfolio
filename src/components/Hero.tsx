@@ -49,10 +49,10 @@ const Hero: React.FC = () => {
           whileInView="show"
           variants={fadeIn("up", 0.2)}
           viewport={{ once: true, amount: 0.7 }}
-          className="flex h-full w-full flex-col items-center justify-center gap-y-8"
+          className="flex h-full w-full flex-col items-center justify-center gap-y-8 "
         >
 
-          <span className="text-2xl font-bold text-white lg:text-4xl">
+          <span className="text-2xl font-bold text-white lg:text-4xl items-center mt-24">
             Hi, I&apos;m
           </span>
 
@@ -182,7 +182,7 @@ const Hero: React.FC = () => {
             </motion.a>
           </div>
 
-          <div className="mt-5 flex justify-center">
+          <div className="flex justify-center">
             <motion.a
               href="#about"
               className="scroll-smooth rounded-xl p-2 text-white hover:bg-white hover:text-black"

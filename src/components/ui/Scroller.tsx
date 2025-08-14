@@ -10,8 +10,7 @@ import {
   useVelocity,
   useAnimationFrame,
 } from "motion/react";
-import './ScrollVelocity.css'
-
+import "./ScrollVelocity.css"
 
 
 interface VelocityMapping {
@@ -142,7 +141,7 @@ function VelocityText({
     <div className={`${parallaxClassName} relative overflow-hidden w-full`} style={parallaxStyle}>
       <div className="w-full bg-yellow-300">
         <motion.div
-          className={`${scrollerClassName} flex whitespace-nowrap font-sans text-base font-bold tracking-[-0.02em] drop-shadow md:text-base md:leading-loose`}
+          className={`${scrollerClassName} flex whitespace-nowrap font-sans text-xl font-bold tracking-[-0.02em] drop-shadow md:text-base md:leading-loose`}
           style={{ x, ...scrollerStyle }}
         >
           {spans}
@@ -160,7 +159,7 @@ export const ScrollVelocity: React.FC<ScrollVelocityProps> = ({
   className = "",
   damping = 50,
   stiffness = 400,
-  numCopies = 6,
+  numCopies = 20,
   velocityMapping = { input: [0, 1000], output: [0, 5] },
   parallaxClassName = "parallax",
   scrollerClassName = "scroller",
