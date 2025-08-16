@@ -2,7 +2,7 @@
 
 import React, { useState } from "react";
 import { FiMenu, FiX } from "react-icons/fi";
-// import { BsMoon, BsSun } from "react-icons/bs";
+import { BsMoon, BsSun } from "react-icons/bs";
 import {
   FaGithub,
   FaLinkedin,
@@ -12,6 +12,7 @@ import {
 import { portfolioData } from '../data/portfolioData';
 import Link from "next/link";
 import Image from "next/image";
+import { div } from "framer-motion/client";
 
 
 interface Data {
@@ -29,6 +30,7 @@ interface Data {
 type NavItem = {
   name: string;
   href: string;
+  subItems?: NavItem[];
 };
 
 const Navbar: React.FC = () => {
@@ -43,12 +45,34 @@ const Navbar: React.FC = () => {
   const socialLinks = (portfolioData as Data).hero.socialLinks;
 
   const navItems: NavItem[] = [
-    { name: "Home", href: "#main" },
-    { name: "About", href: "#about" },
-    { name: "Skills", href: "#skills" },
-    { name: "Projects", href: "#projects" },
-    { name: "Work", href: "#work" },
-    { name: "Contact", href: "#contact" },
+    { name: "Home", href: "/#main" },
+    { name: "About",
+      href: "/#about",
+      subItems: [
+        { name: "More About Me", href: "/about" },
+        { name: "Github Contributions", href: "#githubcontributions" },
+
+      ]
+    },
+    { name: "Skills",
+      href: "/#skills",
+      subItems:[
+        { name: "Skills and Tech", href: "/skillsandtech" },
+      ]
+    },
+    { name: "Projects",
+      href: "/#projects",
+      subItems:[
+        { name: "Ongoing Projects", href: "/ongoingprojects" },
+      ]
+    },
+    { name: "Work",
+      href: "/#work",
+      subItems:[
+        { name: "Explore My Journey", href: "/journey" },
+      ]
+    },
+    { name: "Contact", href: "/#contact" },
   ];
 
   const scrollToTop = () => {
@@ -61,9 +85,7 @@ const Navbar: React.FC = () => {
   return (
     <header className="fixed w-full top-4 z-50 px-4">
       <div
-        className={`max-w-6xl mx-auto flex items-center justify-between text-base px-6 py-2 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${
-          darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"
-        } transition-colors duration-300`}
+        className={`max-w-6xl mx-auto flex items-center justify-between text-base px-6 py-2 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${ darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300`}
       >
         {/* Logo */}
         <Link href="/" className="flex items-center space-x-2 mb-1">
@@ -87,51 +109,110 @@ const Navbar: React.FC = () => {
         </Link>
 
         {/* Desktop Menu */}
-        <nav className="hidden md:flex items-center space-x-6 ">
+        <nav className="hidden md:flex items-center space-x-6">
           {navItems.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              onClick={() => setActiveLink(item.name)}
-              className={`relative px-3 py-1 text-[14px] rounded-md transition hover:bg-gray-300 hover:text-black ${
-                activeLink === item.name
-                  ? "bg-gray-300 shadow-inner text-black"
-                  : "bg-transparent"
-              }`}
-            >
-              {item.name}
-              {activeLink === item.name && (
-                <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-violet-500 rounded-full" />
-              )}
-            </Link>
+            item.subItems ? (
+              <div key={item.name} className="relative group">
+                <Link
+                  href={item.href}
+                  onClick={() => setActiveLink(item.name)}
+                  className={`relative px-3 py-1 text-[14px] rounded-md transition hover:bg-gray-300 hover:text-black ${
+                    activeLink === item.name
+                      ? "bg-gray-300 shadow-inner text-black"
+                      : "bg-transparent"
+                  }`}
+                >
+                  {item.name}
+                  {activeLink === item.name && (
+                    <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-violet-500 rounded-full" />
+                  )}
+                </Link>
+                <ul className={`absolute left-0 mt-4 w-72 rounded-md shadow-lg p-3 invisible opacity-0 backdrop-blur-xl group-hover:visible group-hover:opacity-100 transition-all duration-300 ${ darkMode ? "bg-black/80 " : "bg-white/80 "}`}>
+                  <div className="flex flex-row p-2 gap-2 justify-between items-center">
+
+                      <div className="relative w-full rounded-xl overflow-hidden shadow-lg">
+                        <img
+                          src={darkMode ? "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/roWhitebg.PNG" : "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/roBlackbg.PNG"}
+                          alt="subItem dropdown logo"
+                          className="w-40 h-full rounded-md object-cover opacity-30 transition-transform duration-300 border border-slate-400"
+                        />
+                        {/* Gradient Overlay Text */}
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                            <div className="text-white text-left">
+                              <h3 className="text-lg font-semibold">My Portfolio</h3>
+                              <p className="text-xs mt-1">
+                                A modern platform to visualize my projects and skills.
+                              </p>
+                            </div>
+                          </div>
+                      </div>
+
+                    <div>
+                      {item.subItems.map((subItem) => (
+                      <div key={subItem.name} >
+                        <div className="h-full rounded-md ">
+                          <li key={subItem.name} >
+                            <Link
+                              href={subItem.href}
+                              className={`block px-4 py-3  text-base rounded-lg text-center ${ darkMode ? "hover:bg-white/20 text-white hover:text-white " : "hover:bg-black/20 text-black"}  `}
+                              onClick={() => {
+                                setActiveLink(subItem.name);
+                              }}
+                            >
+                              {subItem.name}
+                            </Link>
+                          </li>
+                        </div>
+                      </div>
+                    ))}
+                    </div>
+                  </div>
+                </ul>
+              </div>
+            ) : (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={() => setActiveLink(item.name)}
+                className={`relative px-3 py-1 text-[14px] rounded-md transition hover:bg-gray-300 hover:text-black ${
+                  activeLink === item.name
+                    ? "bg-gray-300 shadow-inner text-black"
+                    : "bg-transparent"
+                }`}
+              >
+                {item.name}
+                {activeLink === item.name && (
+                  <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-violet-500 rounded-full" />
+                )}
+              </Link>
+            )
           ))}
         </nav>
 
         {/* Right Actions */}
         <div className="flex items-center justify-end space-x-3">
           <div
-            className={`flex flex-col gap-2 text-xl items-center space-x-3 rounded-lg backdrop-blur-lg px-4 py-2 ${
-              darkMode ? "bg-black/50 text-white" : "" } transition-colors duration-300 sm:block hidden`}
+            className={`flex flex-col gap-2 text-xl items-center space-x-3 rounded-lg backdrop-blur-lg px-4 py-1 border border-slate-700 ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300 sm:block hidden`}
           >
             <div className="flex items-center space-x-3 cursor-pointer ">
-              <a href={socialLinks.twitter} target="_blank" className="w-5 h-5 mt-1">
+              <Link href={socialLinks.twitter} target="_blank" className="w-5 h-5 mt-1">
                 <FaTwitter size={14} />
-              </a>
-              <a href={socialLinks.github} target="_blank" className="w-5 h-5 mt-1">
+              </Link>
+              <Link href={socialLinks.github} target="_blank" className="w-5 h-5 mt-1">
                 <FaGithub size={14} />
-              </a>
-              <a href={socialLinks.linkedin} target="_blank" className="w-5 h-5 mt-1">
+              </Link>
+              <Link href={socialLinks.linkedin} target="_blank" className="w-5 h-5 mt-1">
                 <FaLinkedin size={14} />
-              </a>
-              <a href={socialLinks.discord} target="_blank" className="w-5 h-5 mt-1">
+              </Link>
+              <Link href={socialLinks.discord} target="_blank" className="w-5 h-5 mt-1">
                 <FaDiscord size={14} />
-              </a>
+              </Link>
             </div>
           </div>
 
-          {/* <button onClick={toggleDark} className="text-base mb-1">
+          <button onClick={toggleDark} className={`text-base border border-slate-700 rounded-lg p-2  ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"}`}>
             {darkMode ? <BsSun size={14} /> : <BsMoon size={14} />}
-          </button> */}
+          </button>
 
           <button className="md:hidden text-2xl" onClick={toggleNav}>
             {navOpen ? <FiX /> : <FiMenu />}
