@@ -12,7 +12,6 @@ import {
 import { portfolioData } from '../data/portfolioData';
 import Link from "next/link";
 import Image from "next/image";
-import { div } from "framer-motion/client";
 
 
 interface Data {
@@ -73,7 +72,12 @@ const Navbar: React.FC = () => {
         { name: "Explore My Journey", href: "/journey" },
       ]
     },
-    { name: "Contact", href: "/#contact" },
+    { name: "Contact",
+      href: "/#contact",
+      subItems:[
+        { name: "Contact Info", href: "/contactinfo" },
+      ]
+    },
   ];
 
   const scrollToTop = () => {
