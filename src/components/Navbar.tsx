@@ -132,43 +132,48 @@ const Navbar: React.FC = () => {
                     <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-violet-500 rounded-full" />
                   )}
                 </Link>
-                <ul className={`absolute left-0 mt-4 w-72 rounded-md shadow-lg p-4 invisible opacity-0 backdrop-blur-xl group-hover:visible group-hover:opacity-100 transition-all duration-300 ${ darkMode ? "bg-black/80 " : "bg-white/80 "}`}>
+                <ul className={`absolute left-0 mt-4 w-72 rounded-md shadow-lg p-4 invisible opacity-0 backdrop-blur-xl group-hover:visible group-hover:opacity-100 transition-all  duration-300 ${darkMode ? "bg-black/80" : "bg-white/80"}`}>
                   <div className="flex flex-row  gap-2 justify-between items-center">
-                      <div className="relative w-40 h-52 rounded-xl overflow-hidden shadow-lg">
-                        <img
-                          src={darkMode ? "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/roWhitebg.PNG" : "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/roBlackbg.PNG"}
-                          alt="subItem dropdown logo"
-                          className="w-40 h-52 rounded-md object-fill opacity-30 transition-transform duration-300 border border-slate-400"
-                        />
-                        {/* Gradient Overlay Text */}
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
-                            <div className="text-white text-left">
-                              <h3 className="text-lg font-semibold">My Portfolio</h3>
-                              <p className="text-xs mt-1">
-                                A modern platform to visualize my projects and skills.
-                              </p>
-                            </div>
-                          </div>
+                    <div className="relative w-[120px] h-[210px] shrink-0 rounded-xl overflow-hidden shadow-lg">
+                      <img
+                        src={
+                          darkMode
+                            ? "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/roWhitebg.PNG"
+                            : "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/roBlackbg.PNG"
+                        }
+                        alt="subItem dropdown logo"
+                        className="w-full h-full object-cover rounded-md opacity-30 transition-transform duration-300 border-1"
+                      />
+
+                      {/* Gradient Overlay Text */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
+                        <div className="text-white text-left">
+                          <h3 className="text-xl font-bold"> My <span className="text-blue-600"> Portfolio </span> </h3>
+                          <p className="text-xs mt-1">
+                            A modern platform to visualize my projects and skills.
+                          </p>
+                        </div>
                       </div>
+                    </div>
 
                     <div>
                       {item.subItems.map((subItem) => (
-                      <div key={subItem.name} >
-                        <div className="h-full rounded-md ">
-                          <li key={subItem.name} >
-                            <Link
-                              href={subItem.href}
-                              className={`block px-4 py-3  text-base rounded-lg text-center ${ darkMode ? "hover:bg-white/20 text-white hover:text-white " : "hover:bg-black/20 text-black"}  `}
-                              onClick={() => {
-                                setActiveLink(subItem.name);
-                              }}
-                            >
-                              {subItem.name}
-                            </Link>
-                          </li>
+                        <div key={subItem.name} >
+                          <div className="w-full h-full rounded-md ">
+                            <li key={subItem.name} >
+                              <Link
+                                href={subItem.href}
+                                className={`block px-4 py-3 text-base rounded-lg text-center ${ darkMode ? "hover:bg-white/20 text-white hover:text-white " : "hover:bg-black/20 text-black"}  `}
+                                onClick={() => {
+                                  setActiveLink(subItem.name);
+                                }}
+                              >
+                                {subItem.name}
+                              </Link>
+                            </li>
+                          </div>
                         </div>
-                      </div>
-                    ))}
+                      ))}
                     </div>
                   </div>
                 </ul>
@@ -214,7 +219,7 @@ const Navbar: React.FC = () => {
             </div>
           </div>
 
-          <button onClick={toggleDark} className={`text-base border border-slate-700 rounded-lg p-2  ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"}`}>
+          <button onClick={toggleDark} className={`text-base border border-slate-700 rounded-lg p-2  ${darkMode ? "bg-black text-white" : "bg-white/70 text-black"}`}>
             {darkMode ? <BsSun size={14} /> : <BsMoon size={14} />}
           </button>
 
