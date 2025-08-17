@@ -57,13 +57,14 @@ const Navbar: React.FC = () => {
     { name: "Skills",
       href: "/#skills",
       subItems:[
-        { name: "Skills and Tech", href: "/skillsandtech" },
+        { name: "Skills and Technology", href: "/skillsandtech" },
       ]
     },
     { name: "Projects",
       href: "/#projects",
       subItems:[
         { name: "Ongoing Projects", href: "/ongoingprojects" },
+        { name: "Upcoming Projects", href: "/upcomingprojects" },
       ]
     },
     { name: "Work",
@@ -127,14 +128,13 @@ const Navbar: React.FC = () => {
                     <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-violet-500 rounded-full" />
                   )}
                 </Link>
-                <ul className={`absolute left-0 mt-4 w-72 rounded-md shadow-lg p-3 invisible opacity-0 backdrop-blur-xl group-hover:visible group-hover:opacity-100 transition-all duration-300 ${ darkMode ? "bg-black/80 " : "bg-white/80 "}`}>
-                  <div className="flex flex-row p-2 gap-2 justify-between items-center">
-
-                      <div className="relative w-full rounded-xl overflow-hidden shadow-lg">
+                <ul className={`absolute left-0 mt-4 w-72 rounded-md shadow-lg p-4 invisible opacity-0 backdrop-blur-xl group-hover:visible group-hover:opacity-100 transition-all duration-300 ${ darkMode ? "bg-black/80 " : "bg-white/80 "}`}>
+                  <div className="flex flex-row  gap-2 justify-between items-center">
+                      <div className="relative w-40 h-52 rounded-xl overflow-hidden shadow-lg">
                         <img
                           src={darkMode ? "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/roWhitebg.PNG" : "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/roBlackbg.PNG"}
                           alt="subItem dropdown logo"
-                          className="w-40 h-full rounded-md object-cover opacity-30 transition-transform duration-300 border border-slate-400"
+                          className="w-40 h-52 rounded-md object-fill opacity-30 transition-transform duration-300 border border-slate-400"
                         />
                         {/* Gradient Overlay Text */}
                           <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-4">
