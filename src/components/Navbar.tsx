@@ -56,7 +56,7 @@ const Navbar: React.FC = () => {
       href: "/#about",
       subItems: [
         { name: "More About Me", href: "/about" },
-        { name: "Github Contributions", href: "#githubcontributions" },
+        { name: "Github Contributions", href: "/about#githubcontributions" },
       ]
     },
     { name: "Skills",
@@ -68,20 +68,20 @@ const Navbar: React.FC = () => {
     { name: "Projects",
       href: "/#projects",
       subItems:[
-        { name: "Ongoing Projects", href: "/ongoingprojects" },
-        { name: "Upcoming Projects", href: "/upcomingprojects" },
+        { name: "Ongoing Projects", href: "/projects#ongoingprojects" },
+        { name: "Upcoming Projects", href: "/projects#upcomingprojects" },
       ]
     },
     { name: "Work",
       href: "/#work",
       subItems:[
-        { name: "Explore My Journey", href: "/journey" },
+        { name: "Explore My Journey", href: "/workJourney" },
       ]
     },
     { name: "Contact",
       href: "/#contact",
       subItems:[
-        { name: "Contact Info", href: "/contactinfo" },
+        { name: "Contact Info", href: "/contactInfo" },
       ]
     },
   ];
