@@ -59,7 +59,7 @@ const Work = () => {
     <div className="w-screen bg-[#ebeeee] cursor-default ">
       <div id="work" className="max-w-[1280px] mx-auto px-4 ">
         <motion.h1
-          className="text-4xl mb-10 font-bold text-center text-[#001b5e] hover:underline cursor-default"
+          className="text-4xl mb-10 font-bold text-center text-[#001b5e] cursor-default"
           initial="hidden"
           whileInView={"show"}
           variants={fadeIn('up', 0.2)}

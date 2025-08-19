@@ -147,7 +147,7 @@ const Projects: React.FC = () => {
         <style>{customScrollbarStyles}</style>
         <div id="projects">
           <motion.h1
-            className="text-4xl mb-10 font-bold text-center text-[#001b5e] hover:underline cursor-default"
+            className="text-4xl mb-10 font-bold text-center text-[#001b5e] cursor-default"
             initial="hidden"
             whileInView={'show'}
             variants={fadeIn('up', 0.2)}

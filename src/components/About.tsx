@@ -6,6 +6,10 @@ import React from 'react';
 import { portfolioData } from '../data/portfolioData';
 import { fadeIn } from '../variants';
 import Image from "next/image";
+import { LuArrowRight } from "react-icons/lu";
+import Link from "next/link";
+
+
 
 const About: React.FC = () => {
 
@@ -16,7 +20,7 @@ const About: React.FC = () => {
       <div className="max-w-[1280px] mx-auto text-center">
 
         <motion.h1
-          className="text-4xl font-bold text-center text-[#001b5e] pt-14 hover:underline cursor-default"
+          className="text-4xl font-bold text-center text-[#001b5e] pt-14 cursor-default"
           initial="hidden"
           whileInView={"show"}
           variants={fadeIn('up', 0.2)}
@@ -62,6 +66,36 @@ const About: React.FC = () => {
 
             <div className="px-4 lg:px-0">
               <p className="text-base text-justify ">{description}</p>
+            </div>
+
+            <div className="flex justify-end mt-5">
+              <Link href="/about">
+
+                <button className="flex flex-row items-center gap-4 bg-blue-800 text-white border border-black hover:bg-transparent hover:text-black px-4 py-2 rounded-xl shadow-xl transition-colors transform duration-200 ">
+                  More About Me{' '}
+                  <motion.span
+                    initial={{ x: 0 }}
+                    animate={{ x: [8, 0] }}
+                    transition={{
+                      duration: 0.7,
+                      delay: 1,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      ease: "easeInOut",
+                    }}
+                    whileHover={{
+                      x: 0,
+                      transition: {
+                        duration: 0.2,
+                      },
+                    }}
+                    aria-label="Scroll down to About section"
+                    className="mt-0.5 p-1 rounded-full border-1"
+                  >
+                    <LuArrowRight />
+                  </motion.span>
+                </button>
+              </Link>
             </div>
           </motion.div>
 

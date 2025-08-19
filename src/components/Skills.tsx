@@ -50,7 +50,7 @@ const Skills: React.FC = () => {
     <div id="skills" className="bg-[#ebeeee] px-4 ">
       <div className="max-w-[1280px] mx-auto p-4">
         <motion.h1
-          className="text-4xl mb-10 font-bold text-center text-[#001b5e] hover:underline cursor-default"
+          className="text-4xl mb-10 font-bold text-center text-[#001b5e] cursor-default"
           initial="hidden"
           whileInView={"show"}
           variants={fadeIn('up', 0.2)}
