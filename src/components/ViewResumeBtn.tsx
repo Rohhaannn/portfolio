@@ -7,7 +7,7 @@ import { FaFilePdf } from 'react-icons/fa';
 const ViewResumeBtn: FC = () => {
 
   const openResume = () => {
-    const resumeLink = 'https://drive.google.com/file/d/1q0KyAzilONrRk1USRIQXhXJlZrYbgkNi/view?usp=sharing';
+    const resumeLink = 'https://drive.google.com/file/d/15_rA-Jzcv5H-wflHCeD7BEMOtauSRVEy/view?usp=sharing';
     window.open(resumeLink, '_blank');
   };
 
