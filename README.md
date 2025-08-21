@@ -67,7 +67,7 @@ This command will typically open the application in your default web browser at 
 
 ## 📄 License
 
-Distributed under the MIT License. See `MIT` for more information.
+Distributed under the **MIT** License. See `LICENSE.md` for more information.
 
 ## 📧 Contact
 
