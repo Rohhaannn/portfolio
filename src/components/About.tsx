@@ -37,7 +37,14 @@ const About: React.FC = () => {
             variants={fadeIn('left', 0.2)}
             viewport={{ once: true, amount: 0.1 }}
           >
-            <Image className=" h-auto rounded-xl shadow-xl" src={image} alt="Rohan" width={300} height={400} />
+            <Image
+              className="-mt-5 h-auto rounded-xl shadow-xl"
+              src={image}
+              unoptimized
+              alt="Rohan"
+              width={400}
+              height={400}
+            />
           </motion.div>
 
           <motion.div
@@ -45,7 +52,7 @@ const About: React.FC = () => {
             initial="hidden"
             whileInView={"show"}
             variants={fadeIn('right', 0.2)}
-            viewport={{ once: true, amount: 0.7 }}
+            viewport={{ once: true, amount: 0.2 }}
           >
             <div>
               <h6 className="flex sm:text-3xl text-2xl mb-4 pt-4 font-semibold text-[#001b5e] justify-center md:justify-start">

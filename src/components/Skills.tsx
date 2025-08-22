@@ -72,7 +72,7 @@ const Skills: React.FC = () => {
               {categories.map((category) => (
                 <div
                   key={category.id}
-                  className="flex flex-wrap justify-center md:justify-start gap-2 px-3 mb-5  rounded-xl shadow-xl hover:scale-105 transition-transform duration-100"
+                  className="flex flex-wrap justify-center md:justify-start gap-2 px-4 mb-5  rounded-xl shadow-xl hover:scale-105 transition-transform duration-100"
                 >
                   <h3 className="font-bold py-2">{category.title}:</h3>
                   <p className="py-2">
@@ -86,10 +86,11 @@ const Skills: React.FC = () => {
           <div className="order-1 md:order-2 flex justify-center">
             <Image
               src={typedData.skills.image}
+              unoptimized
               alt="Skills Character"
-              className="max-w-80 lg:max-w-[22rem] rounded-xl shadow-xl p-3"
-              width={320}
-              height={320}
+              className="max-w-80 lg:max-w-[22rem] rounded-xl shadow-xl "
+              width={550}
+              height={400}
             />
           </div>
         </motion.div>
