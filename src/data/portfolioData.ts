@@ -27,7 +27,8 @@ export const portfolioData = {
       "Web Developer",
       "Freelancer",
     ],
-    image: "https://project-assets-phi.vercel.app/assets/portfolio-images/cartoonDeveloper.png",
+    // image: "https://project-assets-phi.vercel.app/assets/portfolio-images/cartoonDeveloper.png",
+    image: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/deadlock.gif",
   },
 
   skills: {
@@ -70,7 +71,8 @@ export const portfolioData = {
       { id: 1, name: "Vercel" },
       { id: 2, name: "Netlify" },
     ],
-    image: "https://project-assets-phi.vercel.app/assets/portfolio-images/skillsCharacter.svg",
+    // image: "https://project-assets-phi.vercel.app/assets/portfolio-images/skillsCharacter.svg",
+    image: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/dev.gif",
   },
 
   workExperience: [
