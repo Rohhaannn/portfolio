@@ -86,7 +86,6 @@ const Skills: React.FC = () => {
           <div className="order-1 md:order-2 flex justify-center">
             <Image
               src={typedData.skills.image}
-              unoptimized
               alt="Skills Character"
               className="max-w-80 lg:max-w-[22rem] rounded-xl shadow-xl "
               width={550}

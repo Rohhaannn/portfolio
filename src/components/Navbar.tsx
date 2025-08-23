@@ -98,7 +98,7 @@ const Navbar: React.FC = () => {
   return (
     <header className="fixed w-full top-4 z-50 px-4">
 
-      <div className={`absolute left-10 top-0 w-36 flex items-center justify-center text-base font-bold px-4 py-3 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${ darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300 sm:block hidden`}>
+      <div className={`absolute left-10 top-0 w-36 flex items-center justify-center text-base font-semibold px-4 py-3 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${ darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300 sm:block hidden`}>
         <CountryCity/>
       </div>
 
@@ -237,7 +237,7 @@ const Navbar: React.FC = () => {
           </button>
 
           <button className="md:hidden text-2xl" onClick={toggleNav}>
-            {navOpen ? <FiX size={16} /> : <FiMenu size={16} />}
+            {navOpen ? <FiX size={20} /> : <FiMenu size={20} />}
           </button>
         </div>
       </div>
@@ -262,7 +262,7 @@ const Navbar: React.FC = () => {
                     <span>{item.name}</span>
                     {openSubMenu === item.name ? <LuChevronUp /> : <LuChevronDown />}
                   </button>
-                  {/* UPDATED: Add transition for smooth opening */}
+
                   <div
                     className={`transition-all duration-300 ease-in-out overflow-hidden ${
                       openSubMenu === item.name
@@ -329,10 +329,10 @@ const Navbar: React.FC = () => {
         </div>
       )}
 
-      <div className={`absolute right-6 top-0 w-40 flex items-center justify-center text-base font-bold px-4 py-3 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${   darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300 sm:block hidden`}>
+      <div className={`absolute right-6 top-0 w-40 flex items-center justify-center text-base font-semibold px-4 py-3 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300 sm:block hidden`}>
         <Clock/>
       </div>
-      
+
     </header>
   );
 };

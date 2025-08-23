@@ -38,11 +38,10 @@ const About: React.FC = () => {
             viewport={{ once: true, amount: 0.1 }}
           >
             <Image
-              className="-mt-5 h-auto rounded-xl shadow-xl"
+              className="mt-5 lg:mt-0 h-auto rounded-xl shadow-xl"
               src={image}
-              unoptimized
               alt="Rohan"
-              width={400}
+              width={350}
               height={400}
             />
           </motion.div>
