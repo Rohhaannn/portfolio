@@ -143,13 +143,15 @@ const Navbar: React.FC = () => {
                 <ul className={`absolute left-0 mt-4 w-72 rounded-md shadow-lg p-4 invisible opacity-0 backdrop-blur-xl group-hover:visible group-hover:opacity-100 transition-all  duration-300 ${darkMode ? "bg-black/80" : "bg-white/80"}`}>
                   <div className="flex flex-row gap-2 justify-between items-center">
                     <div className="relative w-[120px] h-[210px] shrink-0 rounded-xl overflow-hidden shadow-lg">
-                      <img
+                      <Image
                         src={
                           darkMode
                             ? "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/roWhitebg.PNG"
                             : "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/roBlackbg.PNG"
                         }
                         alt="subItem dropdown logo"
+                        width={120}
+                        height={210}
                         className="w-full h-full object-cover rounded-md opacity-30 transition-transform duration-300 border-1"
                       />
 

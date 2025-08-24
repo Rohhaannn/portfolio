@@ -19,8 +19,8 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 
   const [darkMode, setDarkMode] = useState<boolean>(true);
 
-  const toggleDark = () => {
-    setDarkMode (prevMode => {
+  const toggleDark = React.useCallback(() => {
+    setDarkMode(prevMode => {
       const newMode = !prevMode;
 
       if (newMode) {
@@ -30,7 +30,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
       }
       return newMode;
     });
-  };
+  }, []);
 
   const contextValue = React.useMemo(() => ({ darkMode, toggleDark }), [darkMode, toggleDark]);
 
