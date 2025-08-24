@@ -1,7 +1,12 @@
+"use client";
 
-"use client"
-
-import React, {createContext, useState, useContext, ReactNode } from 'react'
+import React, {
+  createContext,
+  useState,
+  useContext,
+  ReactNode,
+  useEffect,
+} from "react";
 
 interface ThemeContextType {
   darkMode: boolean;
@@ -12,31 +17,31 @@ interface ThemeProviderProps {
   children: ReactNode;
 }
 
-const ThemeContext = createContext <ThemeContextType | undefined> (undefined);
-
+const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
-
   const [darkMode, setDarkMode] = useState<boolean>(true);
 
-  const toggleDark = React.useCallback(() => {
-    setDarkMode(prevMode => {
-      const newMode = !prevMode;
+  const toggleDark = () => {
+    setDarkMode((prevMode) => !prevMode);
+  };
 
-      if (newMode) {
-        document.body.classList.add('dark');
-      } else {
-        document.body.classList.remove('dark');
-      }
-      return newMode;
-    });
-  }, []);
+  useEffect(() => {
+    if (darkMode) {
+      document.body.classList.add("dark");
+    } else {
+      document.body.classList.remove("dark");
+    }
+  }, [darkMode]);
 
-  const contextValue = React.useMemo(() => ({ darkMode, toggleDark }), [darkMode, toggleDark]);
+  const contextValue = React.useMemo(
+    () => ({ darkMode, toggleDark }),
+    [darkMode, toggleDark]
+  );
 
   return (
     <ThemeContext.Provider value={contextValue}>
-      { children }
+            {children}   {" "}
     </ThemeContext.Provider>
   );
 };
@@ -44,9 +49,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 export const useTheme = () => {
   const context = useContext(ThemeContext);
   if (context === undefined) {
-    throw new Error('useTheme must be used within a ThemeProvider');
+    throw new Error("useTheme must be used within a ThemeProvider");
   }
   return context;
 };
-
-
