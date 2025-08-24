@@ -31,14 +31,14 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased min-h-screen w-full overflow-x-hidden`}>
         <Providers>
           <ScrollProgressBar />
-          <Navbar/>
+          <Navbar />
           {children}
           <GoToTopBtn />
           <ViewResumeBtn />
-          <Footer/>
+          <Footer />
         </Providers>
       </body>
     </html>

@@ -108,7 +108,7 @@ const Contact = () => {
               alt="Contact"
               width={320}
               height={320}
-              className={`w-full max-w-xs md:max-w-sm h-auto mt-5 rounded-xl shadow-xl ${darkMode ? "shadow-gray-700 shadow-lg" : ""} `}
+              className={`w-full max-w-xs md:max-w-sm h-auto mt-5 rounded-xl shadow-xl ${darkMode ? "shadow-[#000]" : ""} `}
             />
           </motion.div>
 

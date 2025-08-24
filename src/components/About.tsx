@@ -39,7 +39,7 @@ const About: React.FC = () => {
             viewport={{ once: true, amount: 0.1 }}
           >
             <Image
-              className={` h-auto rounded-xl shadow-xl ${darkMode ? "shadow-gray-700 shadow-xl" : ""} `}
+              className={`h-auto rounded-xl shadow-xl ${darkMode ? "shadow-[#000]" : ""} `}
               src={image}
               alt="Rohan"
               width={350}

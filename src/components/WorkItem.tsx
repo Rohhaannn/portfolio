@@ -33,7 +33,7 @@ const WorkItem: React.FC<WorkItemProps> = ({
 
   return (
     <div className="max-w-[1280px] mx-auto flex flex-col md:flex-row relative ">
-      <div className={`mb-10 w-full border border-gray-600 shadow-xl p-6 rounded-xl ${darkMode ? "shadow-gray-700 shadow-lg" : ""} `}>
+      <div className={`mb-10 w-full border border-gray-600 shadow-xl p-6 rounded-xl ${darkMode ? "shadow-[#111] shadow-md" : ""} `}>
         <div className="flex justify-start items-center gap-4 flex-wrap mb-2">
           {year && (
             <span className="px-2 py-1.5 rounded-lg font-semibold text-white bg-blue-800 text-sm whitespace-nowrap cursor-default">
@@ -41,13 +41,13 @@ const WorkItem: React.FC<WorkItemProps> = ({
             </span>
           )}
 
-          <span className={`font-bold text-[#001b5e] ${darkMode ? "font-bold bg-gradient-to-r from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-r from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"} `}>{company}</span>
+          <span className={`font-bold text-[#001b5e] ${darkMode ? "font-bold bg-gradient-to-t from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-l from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"} `}>{company}</span>
 
-          <span className={`text-[#001b5e] font-medium ${darkMode ? "font-bold bg-gradient-to-r from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-r from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"} `}>{role}</span>
+          <span className={`text-[#001b5e] font-medium ${darkMode ? "font-bold bg-gradient-to-t from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-l from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"} `}>{role}</span>
 
-          <span className={`text-[#001b5e] font-medium ${darkMode ? "font-bold bg-gradient-to-r from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-r from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"} `}>{location}</span>
+          <span className={`text-[#001b5e] font-medium ${darkMode ? "font-bold bg-gradient-to-t from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-l from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"} `}>{location}</span>
 
-          <span className={`text-[#001b5e] text-sm ${darkMode ? "font-bold bg-gradient-to-r from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-r from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"} `}>{duration}</span>
+          <span className={`text-[#001b5e] text-sm ${darkMode ? "font-bold bg-gradient-to-t from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-l from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"} `}>{duration}</span>
         </div>
         <div className="mt-4 space-y-2 text-sm text-black-600 pl-2 md:pl-6">
           {descriptionArray.map((point) => (

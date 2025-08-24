@@ -48,11 +48,11 @@ const Footer: React.FC = () => {
   const firstName: string = name.split(' ')[0];
 
   return (
-    <div className="w-screen h-64 bg-[#222]">
+    <div className="w-screen bg-[#222]">
       <div
         id="footer"
         className="max-w-[1280px] mx-auto text-center p-4 py-12">
-        <div className="flex justify-center mb-6 gap-3 text-white">
+        <div className="flex justify-center mb-8 gap-3 text-white">
           {socialLinks.map((item: SocialLink) => (
             <a
               key={item.id}
