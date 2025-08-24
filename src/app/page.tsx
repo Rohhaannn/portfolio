@@ -1,7 +1,6 @@
 "use client"
 
 import React from 'react'
-import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import About from '@/components/About'
 import SvgDivider from '@/components/ui/divider/SvgDivider'
@@ -11,8 +10,8 @@ import Projects from '@/components/Projects'
 import SvgDivider3 from '@/components/ui/divider/SvgDivider3'
 import Work from '@/components/Work'
 import Contact from '@/components/Contact'
-import Footer from '@/components/Footer'
 import dynamic from "next/dynamic";
+import SvgDivider4 from '@/components/ui/divider/SvgDivider4'
 
 
 const ScrollVelocity = dynamic(() => import('@/components/ui/Scroller'), {
@@ -23,7 +22,6 @@ const page = () => {
 
   return (
     <div className='flex flex-col justify-center overflow-x-hidden'>
-      <Navbar/>
       <Hero/>
       <About/>
       <SvgDivider/>
@@ -35,14 +33,14 @@ const page = () => {
       <SvgDivider3/>
       <Work/>
       <div className='scale-y-[-1]'>
-        <SvgDivider/>
+        <SvgDivider4/>
       </div>
       <Contact/>
       <ScrollVelocity
         texts={[" Let's Connect! "]}
         className="custom-scroll-text"
       />
-      <Footer/>
+
     </div>
   )
 }
