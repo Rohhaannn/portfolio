@@ -4,6 +4,10 @@ import "./globals.css";
 import GoToTopBtn from "@/components/GoToTopBtn";
 import ViewResumeBtn from "@/components/ViewResumeBtn";
 import ScrollProgressBar from "./ScrollProgressBar";
+import Navbar from "@/components/Navbar";
+import Footer from '@/components/Footer'
+import  Providers  from '@/components/Providers';
+
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,13 +31,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        <ScrollProgressBar /> {/* Use the new component */}
-        {children}
-        <GoToTopBtn />
-        <ViewResumeBtn />
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+        <Providers>
+          <ScrollProgressBar />
+          <Navbar/>
+          {children}
+          <GoToTopBtn />
+          <ViewResumeBtn />
+          <Footer/>
+        </Providers>
       </body>
     </html>
   );
