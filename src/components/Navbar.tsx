@@ -95,35 +95,37 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <header className="fixed w-full top-4 z-50 px-4">
+    <header className="fixed top-5 z-50 w-full px-6">
 
-      <div className={`absolute left-10 top-0 w-36 flex items-center justify-center text-base font-semibold px-4 py-3 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300 sm:block hidden`}>
+      <div className={`absolute top-0 left-6 w-32 flex items-center justify-center text-base font-semibold px-2 py-3.5 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300 sm:block hidden`}>
         <CountryCity />
       </div>
 
       <div
-        className={`max-w-5xl mx-auto flex items-center justify-between text-base px-6 py-2 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300`}
+        className={`max-w-6xl mx-auto flex items-center justify-between text-base px-6 py-2 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300`}
       >
 
-        <Link href="/" className="flex items-center space-x-2 mb-1">
-          {darkMode ?
-            <Image
-              className="lg:w-20"
-              src="https://project-assets-phi.vercel.app/assets/portfolio-images/logo/rohanWhite.png"
-              alt="Logo"
-              width={60}
-              height={60}
-              onClick={scrollToTop}
-            /> :
-            <Image
-              className="lg:w-20"
-              src="https://project-assets-phi.vercel.app/assets/portfolio-images/logo/rohanLogo.png"
-              alt="Logo"
-              width={60}
-              height={60}
-              onClick={scrollToTop}
-            />}
-        </Link>
+        <div>
+          <Link href="/" className="flex items-center space-x-2 mb-1 py-1">
+            {darkMode ?
+              <Image
+                className="lg:w-20"
+                src="https://project-assets-phi.vercel.app/assets/portfolio-images/logo/rohanWhite.png"
+                alt="Logo"
+                width={60}
+                height={60}
+                onClick={scrollToTop}
+              /> :
+              <Image
+                className="lg:w-20"
+                src="https://project-assets-phi.vercel.app/assets/portfolio-images/logo/rohanLogo.png"
+                alt="Logo"
+                width={60}
+                height={60}
+                onClick={scrollToTop}
+              />}
+          </Link>
+        </div>
 
         {/* Desktop Menu */}
         <nav className="hidden md:flex items-center space-x-6">
@@ -297,7 +299,9 @@ const Navbar: React.FC = () => {
               )}
             </div>
           ))}
-          <div className={`flex flex-col gap-2 text-xl items-center space-x-3 rounded-lg backdrop-blur-lg px-4 py-2 ${darkMode ? "bg-black/50 text-white" : ""} transition-colors duration-300`}>
+          <div className={`flex flex-col gap-2 text-xl items-center space-x-3 rounded-lg backdrop-blur-lg px-4 py-2 ${
+            darkMode ? "bg-black/50 text-white border border-white" : "bg-white/50 text-black border border-black"
+          } transition-colors duration-300`}>
             <div className="flex items-center justify-around gap-14 cursor-pointer ">
               <a href={socialLinks.twitter} target="_blank" className="w-5 h-5 mt-1">
                 <FaTwitter size={14} />
@@ -316,7 +320,7 @@ const Navbar: React.FC = () => {
         </div>
       )}
 
-      <div className={`absolute right-6 top-0 w-40 flex items-center justify-center text-base font-semibold px-3 py-3 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300 sm:block hidden`}>
+      <div className={`absolute top-0 right-6 w-36 flex items-center justify-center text-base font-semibold px-3 py-3.5 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300 sm:block hidden`}>
         <Clock />
       </div>
 
