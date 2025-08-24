@@ -11,6 +11,7 @@ import {
   useAnimationFrame,
 } from "motion/react";
 import "./ScrollVelocity.css"
+import { useTheme } from "@/context/ThemeContext"
 
 
 interface VelocityMapping {
@@ -137,8 +138,10 @@ function VelocityText({
     );
   }
 
+  const { darkMode } = useTheme()
+
   return (
-    <div className={`${parallaxClassName} relative overflow-hidden w-full`} style={parallaxStyle}>
+    <div className={`${parallaxClassName} relative overflow-hidden w-full ${darkMode ? "text-[#111]" : ""}`} style={parallaxStyle}>
       <div className="w-full bg-yellow-300">
         <motion.div
           className={`${scrollerClassName} flex whitespace-nowrap font-sans text-xl font-bold tracking-[-0.02em] drop-shadow md:text-base md:leading-loose`}

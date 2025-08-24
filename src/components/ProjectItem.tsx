@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import React from 'react';
 import { LuArrowUpRight } from 'react-icons/lu';
+import { useTheme } from '@/context/ThemeContext';
 
 interface ProjectItemProps {
   img: string;
@@ -11,9 +12,12 @@ interface ProjectItemProps {
 }
 
 const ProjectItem: React.FC<ProjectItemProps> = ({ img, title, desc, githubLink, liveLink }) => {
+
+  const {darkMode} = useTheme()
+
   return (
     <div className='flex justify-center'>
-      <div className='lg:w-[320px] w-[270px] h-[420px] rounded-xl border lg:hover:scale-105 transition-transform bg-white border-gray-300 p-2 flex flex-col shadow-lg overflow-hidden'>
+      <div className={`lg:w-[320px] w-[270px] h-[420px] rounded-xl border lg:hover:scale-105 transition-transform border-gray-300 p-2 flex flex-col shadow-lg overflow-hidden ${darkMode ? "bg-[#222]" : "bg-[#fff]"}`}>
         {img && (
           <Image
             src={img}
@@ -30,7 +34,7 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ img, title, desc, githubLink,
             <h1 className='inline-flex justify-center text-lg font-semibold text-center w-full'>
               {title}
             </h1>
-            <p className='mt-3 text-sm text-gray-600 text-center'>
+            <p className='mt-3 text-sm text-center'>
               {desc}
             </p>
           </div>

@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 import { portfolioData } from '../data/portfolioData';
 import Image from "next/image";
+import { useTheme } from "@/context/ThemeContext";
 
 
 const contactFormSchema = z.object({
@@ -23,6 +24,8 @@ type FormData = z.infer<typeof contactFormSchema>;
 type FormErrors = Partial<Record<keyof FormData, string>> & { general?: string };
 
 const Contact = () => {
+
+  const { darkMode } = useTheme();
 
   const {image, formEndpoint} = portfolioData.contact;
 
@@ -80,10 +83,10 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="w-screen mb-16">
+    <div id="contact" className={`w-screen pb-16 ${darkMode ? "bg-[#111] text-white" : ""} `}>
       <div className="max-w-[1280px] mx-auto">
         <motion.h1
-          className="text-4xl font-bold text-center text-[#001b5e] mb-2 md:pl-20 cursor-default"
+          className={`text-4xl font-bold text-center text-[#001b5e] mb-2 md:pl-20 cursor-default ${darkMode ? "font-bold bg-gradient-to-br from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-b from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"} `}
           initial="hidden"
           whileInView={"show"}
           variants={fadeIn('up', 0.2)}
@@ -105,7 +108,7 @@ const Contact = () => {
               alt="Contact"
               width={320}
               height={320}
-              className="w-full max-w-xs md:max-w-sm h-auto mt-5 rounded-xl shadow-xl"
+              className={`w-full max-w-xs md:max-w-sm h-auto mt-5 rounded-xl shadow-xl ${darkMode ? "shadow-gray-700 shadow-lg" : ""} `}
             />
           </motion.div>
 
@@ -122,7 +125,7 @@ const Contact = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                   {["name", "contact"].map((field) => (
                     <div key={field} className="flex flex-col w-full">
-                      <label htmlFor={field} className={`uppercase text-sm font-medium py-2 hover:underline cursor-pointer ${errors[field as keyof FormData] ? "text-red-500" : ""}`}>
+                      <label htmlFor={field} className={`uppercase text-sm font-medium py-2 hover:underline cursor-pointer ${darkMode ? "text-blue-600" : "text-[#001b5e]"}  ${errors[field as keyof FormData] ? "text-red-500" : ""}`}>
                         {field === "contact" ? "Contact Number" : field.charAt(0).toUpperCase() + field.slice(1)}
                       </label>
                       <input
@@ -143,7 +146,7 @@ const Contact = () => {
 
                 {["email", "subject"].map((field) => (
                   <div key={field} className="flex flex-col w-full mx-auto">
-                    <label htmlFor={field} className={`uppercase text-sm font-medium py-1 hover:underline cursor-pointer ${errors[field as keyof FormData] ? "text-red-500" : ""}`}>
+                    <label htmlFor={field} className={`uppercase text-sm font-medium py-1 hover:underline cursor-pointer ${darkMode ? "text-blue-600" : "text-[#001b5e]"} ${errors[field as keyof FormData] ? "text-red-500" : ""}`}>
                       {field.charAt(0).toUpperCase() + field.slice(1)}
                     </label>
                     <input
@@ -162,10 +165,10 @@ const Contact = () => {
 
                 {/* Message field */}
                 <div className="flex flex-col w-full mx-auto">
-                  <label htmlFor="msg" className={`uppercase text-sm font-medium py-2 hover:underline cursor-pointer ${errors.msg ? "text-red-500" : ""}`}>Message</label>
+                  <label htmlFor="msg" className={`uppercase text-sm font-medium py-2 hover:underline cursor-pointer ${darkMode ? "text-blue-600" : "text-[#001b5e]"} ${errors.msg ? "text-red-500" : ""}`}>Message</label>
                   <textarea
                     id="msg"
-                    className={`border-2 rounded-lg w-full focus:border-blue-500 focus:outline-none ${errors.msg ? "border-red-500" : "border-gray-300 shadow-lg"}`}
+                    className={`border-2 p-2 rounded-lg w-full focus:border-blue-500 focus:outline-none ${errors.msg ? "border-red-500" : "border-gray-300 shadow-lg"}`}
                     rows={4}
                     name="msg"
                     value={formData.msg}
@@ -179,7 +182,7 @@ const Contact = () => {
 
               <motion.button
                 type="submit"
-                className=" flex flex-row gap-2 justify-center items-center bg-blue-800 text-gray-100 shadow-2xl mt-4 w-full p-2 rounded-lg hover:bg-blue-600"
+                className=" flex flex-row gap-2 justify-center items-center bg-blue-800 font-semibold text-gray-100 shadow-2xl mt-4 w-full p-2 rounded-lg hover:bg-blue-600"
                 initial={{ scale: 0.5 }}
                 whileInView={{
                   scale: 1,

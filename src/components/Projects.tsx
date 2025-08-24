@@ -6,6 +6,7 @@ import ProjectItem from './ProjectItem';
 import { LuChevronLeft, LuChevronRight } from 'react-icons/lu';
 import { motion } from 'framer-motion';
 import { fadeIn } from '../variants';
+import { useTheme } from '@/context/ThemeContext';
 
 interface Project {
   id: number;
@@ -29,6 +30,9 @@ const customScrollbarStyles = `
 `;
 
 const Projects: React.FC = () => {
+
+  const { darkMode } = useTheme()
+
   const [filter, setFilter] = useState<'major' | 'mini' | 'all'>('all');
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [cardWidth, setCardWidth] = useState<number>(0);
@@ -142,12 +146,12 @@ const Projects: React.FC = () => {
   );
 
   return (
-    <div className="w-full ">
+    <div className={`w-full ${darkMode ? "bg-[#111] text-white" : ""}`}>
       <div className="max-w-[1280px] mx-auto">
         <style>{customScrollbarStyles}</style>
         <div id="projects">
           <motion.h1
-            className="text-4xl mb-10 font-bold text-center text-[#001b5e] cursor-default"
+            className={`text-4xl h-12 mb-10 font-bold text-center text-[#001b5e] cursor-default ${darkMode ? "font-bold bg-gradient-to-br from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-b from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"} `}
             initial="hidden"
             whileInView={'show'}
             variants={fadeIn('up', 0.2)}

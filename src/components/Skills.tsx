@@ -5,6 +5,7 @@ import { portfolioData } from "../data/portfolioData";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 import Image from 'next/image';
+import { useTheme } from '@/context/ThemeContext';
 
 
 interface SkillItem {
@@ -28,6 +29,9 @@ interface Data {
 const typedData: Data = portfolioData;
 
 const Skills: React.FC = () => {
+
+  const { darkMode } = useTheme();
+
   const {
     Frontend,
     Backend,
@@ -47,10 +51,10 @@ const Skills: React.FC = () => {
   ];
 
   return (
-    <div id="skills" className="bg-[#ebeeee] px-4 ">
+    <div id="skills" className={` px-4 ${darkMode ? "bg-[#222] text-white" : "bg-[#ebeeee]"}`}>
       <div className="max-w-[1280px] mx-auto p-4">
         <motion.h1
-          className="text-4xl mb-10 font-bold text-center text-[#001b5e] cursor-default"
+          className={`text-4xl mb-10 font-bold text-center text-[#001b5e] cursor-default ${darkMode ? "font-bold bg-gradient-to-br from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-b from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"}`}
           initial="hidden"
           whileInView={"show"}
           variants={fadeIn('up', 0.2)}
@@ -72,7 +76,7 @@ const Skills: React.FC = () => {
               {categories.map((category) => (
                 <div
                   key={category.id}
-                  className="flex flex-wrap justify-center md:justify-start gap-2 px-4 mb-5  rounded-xl shadow-xl hover:scale-105 transition-transform duration-100"
+                  className={`flex flex-wrap justify-center md:justify-start gap-2 px-4 mb-5  rounded-xl shadow-xl hover:scale-105 transition-transform duration-100 ${darkMode ? "shadow-gray-700 shadow-sm" : ""} `}
                 >
                   <h3 className="font-bold py-2">{category.title}:</h3>
                   <p className="py-2">
@@ -87,7 +91,7 @@ const Skills: React.FC = () => {
             <Image
               src={typedData.skills.image}
               alt="Skills Character"
-              className="max-w-80 lg:max-w-[22rem] rounded-xl shadow-xl "
+              className={`max-w-80 lg:max-w-[22rem] rounded-xl shadow-xl ${darkMode ? "shadow-gray-700 shadow-sm" : ""} `}
               width={550}
               height={400}
             />

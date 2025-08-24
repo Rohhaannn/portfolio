@@ -8,19 +8,20 @@ import { fadeIn } from '../variants';
 import Image from "next/image";
 import { LuArrowRight } from "react-icons/lu";
 import Link from "next/link";
+import { useTheme } from "@/context/ThemeContext";
 
 
 
 const About: React.FC = () => {
-
+  const { darkMode } = useTheme()
   const { roles, description, image } = portfolioData.about;
 
   return (
-    <div id="about" className="w-screen">
-      <div className="max-w-[1280px] mx-auto text-center">
+    <div id="about" className={`w-screen ${darkMode ? "bg-[#111] text-white" : ""}`}>
+      <div className="max-w-[1280px] mx-auto text-center ">
 
         <motion.h1
-          className="text-4xl font-bold text-center text-[#001b5e] pt-14 cursor-default"
+          className={`text-4xl mb-10 pt-14 font-bold text-center text-[#001b5e] cursor-default ${darkMode ? "font-bold bg-gradient-to-br from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-b from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"}`}
           initial="hidden"
           whileInView={"show"}
           variants={fadeIn('up', 0.2)}
@@ -38,7 +39,7 @@ const About: React.FC = () => {
             viewport={{ once: true, amount: 0.1 }}
           >
             <Image
-              className="mt-5 lg:mt-0 h-auto rounded-xl shadow-xl"
+              className={` h-auto rounded-xl shadow-xl ${darkMode ? "shadow-gray-700 shadow-xl" : ""} `}
               src={image}
               alt="Rohan"
               width={350}
@@ -54,7 +55,7 @@ const About: React.FC = () => {
             viewport={{ once: true, amount: 0.2 }}
           >
             <div>
-              <h6 className="flex sm:text-3xl text-2xl mb-4 pt-4 font-semibold text-[#001b5e] justify-center md:justify-start">
+              <h6 className={`flex sm:text-3xl text-2xl mb-4 pt-4 font-semibold text-[#001b5e] justify-center md:justify-start  ${darkMode ? "font-bold bg-gradient-to-l from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-l from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"}  `}>
                 I&apos;m a
                 <TypeAnimation
                   sequence={roles.flatMap(role => [role, 1000])}

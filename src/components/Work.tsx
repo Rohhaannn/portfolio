@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 import WorkItem from "./WorkItem";
 import { portfolioData } from "../data/portfolioData";
+import { useTheme } from '@/context/ThemeContext';
 
 
 interface WorkExperience {
@@ -53,13 +54,15 @@ const formatDisplayDate = (date: string): string => {
 
 const Work = () => {
 
+  const {darkMode} = useTheme()
+
   const workExperience: WorkExperience[] = portfolioData.workExperience;
 
   return (
-    <div className="w-screen bg-[#ebeeee] cursor-default ">
+    <div className={`w-screen cursor-default ${darkMode ? "bg-[#222] text-white" : "bg-[#ebeeee]"}`}>
       <div id="work" className="max-w-[1280px] mx-auto px-4 ">
         <motion.h1
-          className="text-4xl mb-10 font-bold text-center text-[#001b5e] cursor-default"
+          className={`text-4xl mb-10 font-bold text-center text-[#001b5e] cursor-default ${darkMode ? "font-bold bg-gradient-to-br from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-b from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"} `}
           initial="hidden"
           whileInView={"show"}
           variants={fadeIn('up', 0.2)}
