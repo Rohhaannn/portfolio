@@ -102,7 +102,7 @@ const Navbar: React.FC = () => {
       </div>
 
       <div
-        className={`max-w-6xl mx-auto flex items-center justify-between text-base px-6 py-2 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300`}
+        className={`max-w-5xl mx-auto flex items-center justify-between text-base px-6 py-2 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300`}
       >
 
         <Link href="/" className="flex items-center space-x-2 mb-1">
