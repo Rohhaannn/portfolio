@@ -7,4 +7,23 @@ html {
 
 body {
   overflow-x: hidden;
+  background-color: #fff;
+  color: #111;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark {
+  background-color: #111;
+  color: #fff;
+}
+
+.some-component-container {
+  background-color: #f7fafc;
+  color: #1a202c;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark .some-component-container {
+  background-color: #111;
+  color: #ffffff;
 }
