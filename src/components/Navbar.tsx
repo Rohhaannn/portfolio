@@ -241,18 +241,30 @@ const Navbar: React.FC = () => {
           {navItems.map((item) => (
             <div key={item.name}>
               {item.subItems ? (
-                <>
-                  <button
-                    onClick={() => toggleSubMenu(item.name)}
-                    className={`flex items-center justify-between w-full px-6 py-2 font-semibold rounded transition-colors duration-200 ${darkMode ? "hover:bg-white/20" : "hover:bg-gray-200"}`}
-                  >
-                    <span>{item.name}</span>
-                    {openSubMenu === item.name ? <LuChevronUp /> : <LuChevronDown />}
-                  </button>
+                <div className="flex flex-col">
+                  <div className="flex items-center justify-between">
+                    {/* navItem */}
+                    <Link
+                      href={item.href}
+                      onClick={() => {
+                        setActiveLink(item.name);
+                        setNavOpen(false);
+                      }}
+                      className={`flex-1 px-6 py-2 rounded font-semibold text-left ${darkMode ? "hover:bg-white/20" : "hover:bg-gray-200"}`}
+                    >
+                      {item.name}
+                    </Link>
 
-                  <div
-                    className={`transition-all duration-300 ease-in-out overflow-hidden ${openSubMenu === item.name ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}
-                  >
+                    <button
+                      onClick={() => toggleSubMenu(item.name)}
+                      className="px-2"
+                    >
+                      {openSubMenu === item.name ? <LuChevronUp /> : <LuChevronDown />}
+                    </button>
+                  </div>
+
+                  {/* Submenu */}
+                  <div className={`transition-all duration-300 ease-in-out overflow-hidden ${openSubMenu === item.name ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
                     <ul className="pl-4 mt-2 space-y-1">
                       {item.subItems.map((subItem) => (
                         <li key={subItem.name}>
@@ -270,7 +282,7 @@ const Navbar: React.FC = () => {
                       ))}
                     </ul>
                   </div>
-                </>
+                </div>
               ) : (
                 <Link
                   href={item.href}
