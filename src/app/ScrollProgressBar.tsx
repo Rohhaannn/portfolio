@@ -1,8 +1,11 @@
 "use client";
 
 import { motion, useScroll } from "framer-motion";
+import { useTheme } from "@/context/ThemeContext";
 
 export default function ScrollProgressBar() {
+
+  const {darkMode} = useTheme()
   const { scrollYProgress } = useScroll();
 
   return (
@@ -10,7 +13,7 @@ export default function ScrollProgressBar() {
       style={{
         scaleX: scrollYProgress,
       }}
-      className='bg-blue-600 origin-left w-full h-1.5 fixed top-0 left-0 z-[999]'
+      className={`origin-left w-full h-1 fixed top-0 left-0 z-[999] ${darkMode ? "bg-[#a603f8]" : "bg-blue-600"}`}
     />
   );
 }
