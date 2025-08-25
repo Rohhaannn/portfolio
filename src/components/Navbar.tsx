@@ -97,7 +97,7 @@ const Navbar: React.FC = () => {
   return (
     <header className="fixed top-5 z-50 w-full px-6">
 
-      <div className="flex flex-row justify-between">
+      <div className="flex flex-row justify-around">
 
         <div className={` w-32 flex items-center justify-center text-base font-semibold px-2 py-3.5 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300 sm:block hidden`}>
           <CountryCity />
@@ -105,7 +105,7 @@ const Navbar: React.FC = () => {
 
         <div>
           <div
-            className={`w-6xl mx-auto flex items-center justify-between text-base px-6 py-2 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300`}
+            className={`w-5xl mx-auto flex items-center justify-between text-base px-6 py-2 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300`}
           >
             <div>
               <Link href="/" className="flex items-center space-x-2 mb-1 py-1">
