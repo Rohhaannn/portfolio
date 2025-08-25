@@ -52,7 +52,7 @@ const Hero: React.FC = () => {
           className="flex h-full w-full flex-col items-center justify-center gap-y-8 "
         >
 
-          <span className="text-2xl font-bold text-white lg:text-4xl items-center mt-24">
+          <span className="text-2xl font-bold text-white lg:text-4xl items-center lg:mt-10">
             Hi, I&apos;m
           </span>
 
@@ -105,7 +105,7 @@ const Hero: React.FC = () => {
             <TypeAnimation
               sequence={roles.flatMap((role) => [role, 1000])}
               wrapper="span"
-              speed={50}
+              speed={20}
               style={{
                 fontSize: fontSize,
                 display: "inline-block",
