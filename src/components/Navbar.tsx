@@ -212,16 +212,16 @@ const Navbar: React.FC = () => {
             <div className="flex items-center justify-end space-x-3">
               <div className={`flex flex-col gap-2 text-xl items-center space-x-3 rounded-lg backdrop-blur-lg px-4 py-1 border border-slate-700 ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300 sm:block hidden`}>
                 <div className="flex items-center space-x-3 cursor-pointer ">
-                  <Link href={socialLinks.twitter} target="_blank" className="w-5 h-5 mt-1">
+                  <Link href={socialLinks.twitter} target="_blank" className="w-5 h-5 mt-1 text-blue-500">
                     <FaTwitter size={14} />
                   </Link>
                   <Link href={socialLinks.github} target="_blank" className="w-5 h-5 mt-1">
                     <FaGithub size={14} />
                   </Link>
-                  <Link href={socialLinks.linkedin} target="_blank" className="w-5 h-5 mt-1">
+                  <Link href={socialLinks.linkedin} target="_blank" className="w-5 h-5 mt-1 text-[#0063c8]">
                     <FaLinkedin size={14} />
                   </Link>
-                  <Link href={socialLinks.discord} target="_blank" className="w-5 h-5 mt-1">
+                  <Link href={socialLinks.discord} target="_blank" className="w-5 h-5 mt-1 text-[#5865f2]">
                     <FaDiscord size={14} />
                   </Link>
                 </div>
@@ -306,16 +306,16 @@ const Navbar: React.FC = () => {
                   darkMode ? "bg-black/50 text-white border border-white" : "bg-white/50 text-black border border-black"
                 } transition-colors duration-300`}>
                   <div className="flex items-center justify-around gap-14 cursor-pointer ">
-                    <a href={socialLinks.twitter} target="_blank" className="w-5 h-5 mt-1">
+                    <a href={socialLinks.twitter} target="_blank" className="w-5 h-5 mt-1 text-blue-500">
                       <FaTwitter size={14} />
                     </a>
                     <a href={socialLinks.github} target="_blank" className="w-5 h-5 mt-1">
                       <FaGithub size={14} />
                     </a>
-                    <a href={socialLinks.linkedin} target="_blank" className="w-5 h-5 mt-1">
+                    <a href={socialLinks.linkedin} target="_blank" className="w-5 h-5 mt-1 text-[#0063c8]">
                       <FaLinkedin size={14} />
                     </a>
-                    <a href={socialLinks.discord} target="_blank" className="w-5 h-5 mt-1">
+                    <a href={socialLinks.discord} target="_blank" className="w-5 h-5 mt-1 text-[#5865f2]">
                       <FaDiscord size={14} />
                     </a>
                   </div>
