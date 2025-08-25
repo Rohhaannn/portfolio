@@ -27,7 +27,7 @@ const Clock = () => {
   };
 
   return (
-    <div className="navbar-clock flex flex-row justify-center items-center gap-2 pb-0.5">
+    <div className="navbar-clock flex flex-row justify-center items-center gap-2 py-0.5">
       <ImClock size={18}/> {formatTime(time)}
     </div>
   );
