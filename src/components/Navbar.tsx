@@ -97,7 +97,7 @@ const Navbar: React.FC = () => {
   return (
     <header className="fixed top-5 z-50 w-full px-6">
 
-      <div className="flex flex-row justify-around">
+      <div className="lg:flex lg:flex-row lg:justify-around">
 
         <div className={` w-32 flex items-center justify-center text-base font-semibold px-2 py-3.5 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300 sm:block hidden`}>
           <CountryCity />
@@ -105,7 +105,7 @@ const Navbar: React.FC = () => {
 
         <div>
           <div
-            className={`w-5xl mx-auto flex items-center justify-between text-base px-6 py-2 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300`}
+            className={`w-full lg:w-5xl mx-auto flex items-center justify-between text-base px-6 py-2 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300`}
           >
             <div>
               <Link href="/" className="flex items-center space-x-2 mb-1 py-1">
@@ -237,90 +237,92 @@ const Navbar: React.FC = () => {
             </div>
           </div>
 
-          {/* Mobile Menu */}
-          {navOpen && (
-            <div
-              className={`md:hidden text-base mt-2 mx-auto max-w-6xl backdrop-blur-lg border border-gray-600 ${darkMode ? "bg-gray-900/50 text-white" : "bg-white/50 text-black"} rounded-xl shadow-md p-4 space-y-2`}
-            >
-              {navItems.map((item) => (
-                <div key={item.name}>
-                  {item.subItems ? (
-                    <div className="flex flex-col">
-                      <div className="flex items-center justify-between">
-                        {/* navItem */}
-                        <Link
-                          href={item.href}
-                          onClick={() => {
-                            setActiveLink(item.name);
-                            setNavOpen(false);
-                          }}
-                          className={`flex-1 px-6 py-2 rounded font-semibold text-left ${darkMode ? "hover:bg-white/20" : "hover:bg-gray-200"}`}
-                        >
-                          {item.name}
-                        </Link>
+          <div className="w-full">
+            {/* Mobile Menu */}
+            {navOpen && (
+              <div
+                className={`md:hidden text-base mt-2 mx-auto max-w-6xl backdrop-blur-lg border border-gray-600 ${darkMode ? "bg-gray-900/50 text-white" : "bg-white/50 text-black"} rounded-xl shadow-md p-4 space-y-2`}
+              >
+                {navItems.map((item) => (
+                  <div key={item.name}>
+                    {item.subItems ? (
+                      <div className="flex flex-col">
+                        <div className="flex items-center justify-between">
+                          {/* navItem */}
+                          <Link
+                            href={item.href}
+                            onClick={() => {
+                              setActiveLink(item.name);
+                              setNavOpen(false);
+                            }}
+                            className={`flex-1 px-6 py-2 rounded font-semibold text-left ${darkMode ? "hover:bg-white/20" : "hover:bg-gray-200"}`}
+                          >
+                            {item.name}
+                          </Link>
 
-                        <button
-                          onClick={() => toggleSubMenu(item.name)}
-                          className="px-2"
-                        >
-                          {openSubMenu === item.name ? <LuChevronUp /> : <LuChevronDown />}
-                        </button>
-                      </div>
+                          <button
+                            onClick={() => toggleSubMenu(item.name)}
+                            className="px-2"
+                          >
+                            {openSubMenu === item.name ? <LuChevronUp /> : <LuChevronDown />}
+                          </button>
+                        </div>
 
-                      {/* Submenu */}
-                      <div className={`transition-all duration-300 ease-in-out overflow-hidden ${openSubMenu === item.name ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
-                        <ul className="pl-4 mt-2 space-y-1">
-                          {item.subItems.map((subItem) => (
-                            <li key={subItem.name}>
-                              <Link
-                                href={subItem.href}
-                                onClick={() => {
-                                  setActiveLink(subItem.name);
-                                  setNavOpen(false);
-                                }}
-                                className={`block w-full text-left px-6 py-2 rounded transition-colors duration-200 ${darkMode ? "hover:bg-white/10" : "hover:bg-gray-300"}`}
-                              >
-                                {subItem.name}
-                              </Link>
-                            </li>
-                          ))}
-                        </ul>
+                        {/* Submenu */}
+                        <div className={`transition-all duration-300 ease-in-out overflow-hidden ${openSubMenu === item.name ? "max-h-40 opacity-100" : "max-h-0 opacity-0"}`}>
+                          <ul className="pl-4 mt-2 space-y-1">
+                            {item.subItems.map((subItem) => (
+                              <li key={subItem.name}>
+                                <Link
+                                  href={subItem.href}
+                                  onClick={() => {
+                                    setActiveLink(subItem.name);
+                                    setNavOpen(false);
+                                  }}
+                                  className={`block w-full text-left px-6 py-2 rounded transition-colors duration-200 ${darkMode ? "hover:bg-white/10" : "hover:bg-gray-300"}`}
+                                >
+                                  {subItem.name}
+                                </Link>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
                       </div>
-                    </div>
-                  ) : (
-                    <Link
-                      href={item.href}
-                      onClick={() => {
-                        setActiveLink(item.name);
-                        setNavOpen(false);
-                      }}
-                      className={`block w-full text-left px-6 py-2 rounded font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 ${activeLink === item.name ? "font-semibold" : ""}`}
-                    >
-                      {item.name}
-                    </Link>
-                  )}
-                </div>
-              ))}
-              <div className={`flex flex-col gap-2 text-xl items-center space-x-3 rounded-lg backdrop-blur-lg px-4 py-2 ${
-                darkMode ? "bg-black/50 text-white border border-white" : "bg-white/50 text-black border border-black"
-              } transition-colors duration-300`}>
-                <div className="flex items-center justify-around gap-14 cursor-pointer ">
-                  <a href={socialLinks.twitter} target="_blank" className="w-5 h-5 mt-1">
-                    <FaTwitter size={14} />
-                  </a>
-                  <a href={socialLinks.github} target="_blank" className="w-5 h-5 mt-1">
-                    <FaGithub size={14} />
-                  </a>
-                  <a href={socialLinks.linkedin} target="_blank" className="w-5 h-5 mt-1">
-                    <FaLinkedin size={14} />
-                  </a>
-                  <a href={socialLinks.discord} target="_blank" className="w-5 h-5 mt-1">
-                    <FaDiscord size={14} />
-                  </a>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        onClick={() => {
+                          setActiveLink(item.name);
+                          setNavOpen(false);
+                        }}
+                        className={`block w-full text-left px-6 py-2 rounded font-semibold hover:bg-gray-100 dark:hover:bg-gray-700 ${activeLink === item.name ? "font-semibold" : ""}`}
+                      >
+                        {item.name}
+                      </Link>
+                    )}
+                  </div>
+                ))}
+                <div className={`flex flex-col gap-2 text-xl items-center space-x-3 rounded-lg backdrop-blur-lg px-4 py-2 ${
+                  darkMode ? "bg-black/50 text-white border border-white" : "bg-white/50 text-black border border-black"
+                } transition-colors duration-300`}>
+                  <div className="flex items-center justify-around gap-14 cursor-pointer ">
+                    <a href={socialLinks.twitter} target="_blank" className="w-5 h-5 mt-1">
+                      <FaTwitter size={14} />
+                    </a>
+                    <a href={socialLinks.github} target="_blank" className="w-5 h-5 mt-1">
+                      <FaGithub size={14} />
+                    </a>
+                    <a href={socialLinks.linkedin} target="_blank" className="w-5 h-5 mt-1">
+                      <FaLinkedin size={14} />
+                    </a>
+                    <a href={socialLinks.discord} target="_blank" className="w-5 h-5 mt-1">
+                      <FaDiscord size={14} />
+                    </a>
+                  </div>
                 </div>
               </div>
-            </div>
-          )}
+            )}
+          </div>
         </div>
 
         <div className={` w-36 flex items-center justify-center text-base font-semibold px-3 py-3.5 rounded-2xl shadow-lg backdrop-blur-lg border border-gray-600 ${darkMode ? "bg-black/50 text-white" : "bg-white/50 text-black"} transition-colors duration-300 sm:block hidden`}>
