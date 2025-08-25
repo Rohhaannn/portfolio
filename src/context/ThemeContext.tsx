@@ -41,7 +41,7 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
 
   return (
     <ThemeContext.Provider value={contextValue}>
-            {children}   {" "}
+            {children}
     </ThemeContext.Provider>
   );
 };
