@@ -63,7 +63,7 @@ const WorkItem: React.FC<WorkItemProps> = ({
                 {techStackArray.map((tech) => (
                   <motion.span
                     key={tech}
-                    className="bg-gray-300 border border-gray-500 shadow-lg text-sm font-semibold px-4 py-1 rounded-full text-gray-800 hover:bg-blue-600 hover:text-white cursor-default"
+                    className={`bg-gray-300 border border-gray-500 shadow-xl text-sm font-semibold px-4 py-1 rounded-full text-gray-800 hover:bg-blue-600 hover:text-white cursor-default ${darkMode ? "shadow-[#111] shadow-xl" : ""}`}
                     initial="hidden"
                     whileInView={"show"}
                     variants={fadeIn('right', 0.2)}
