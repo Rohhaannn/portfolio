@@ -161,7 +161,7 @@ const Projects: React.FC = () => {
           </motion.h1>
 
           <motion.div
-            className="relative flex justify-center items-center mb-2"
+            className="relative flex justify-center items-center mb-2 [font-family:var(--font-ubuntu)]"
             initial="hidden"
             whileInView={'show'}
             variants={fadeIn('left', 0.2)}
@@ -203,7 +203,7 @@ const Projects: React.FC = () => {
           </motion.div>
 
           <motion.div
-            className="relative flex justify-center items-center"
+            className="relative flex justify-center items-center [font-family:var(--font-ubuntu)]"
             initial="hidden"
             whileInView={'show'}
             variants={fadeIn('right', 0.2)}

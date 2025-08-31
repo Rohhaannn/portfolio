@@ -3,12 +3,20 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import axios from "axios";
 import { z } from "zod";
-import { LuSend, LuCircleCheckBig } from "react-icons/lu";
+import { LuSend, LuCircleCheckBig,LuMail, LuPhone } from "react-icons/lu";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 import { portfolioData } from '../data/portfolioData';
-import Image from "next/image";
+import { ImBehance2 } from "react-icons/im";
 import { useTheme } from "@/context/ThemeContext";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaDiscord,
+  FaTwitter,
+} from "react-icons/fa";
+import { FaArrowRightLong } from "react-icons/fa6";
+
 
 
 const contactFormSchema = z.object({
@@ -27,7 +35,8 @@ const Contact = () => {
 
   const { darkMode } = useTheme();
 
-  const {image, formEndpoint} = portfolioData.contact;
+  const {formEndpoint} = portfolioData.contact;
+  const { socialLinks } = portfolioData.hero;
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -92,29 +101,131 @@ const Contact = () => {
           variants={fadeIn('up', 0.2)}
           viewport={{ once: true, amount: 0.2 }}
         >
-          Connect with Me
+          <span className="font-extralight"> Connect with </span>Me
         </motion.h1>
 
         <div className="max-w-[1040px] mx-auto flex flex-col md:flex-row items-center">
           <motion.div
-            className="md:w-1/2 flex justify-center md:justify-start mb-2 md:mb-0"
+            className="md:w-1/2 flex justify-center md:justify-start mb-2 md:mb-0 [font-family:var(--font-ubuntu)]"
             initial="hidden"
             whileInView={"show"}
             variants={fadeIn('right', 0.1)}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <Image
+            {/* <Image
               src={image}
               alt="Contact"
               width={320}
               height={320}
               className={`w-full max-w-xs md:max-w-sm h-auto mt-5 rounded-xl shadow-xl ${darkMode ? "shadow-[#000]" : ""} `}
-            />
+            /> */}
+            <div>
+
+              <motion.div
+
+                initial={{ x: 0}}
+                animate={{x: [0,35] }}
+                transition={{
+                  duration: 0.7,
+                  delay: 1,
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                  ease: "easeInOut",
+                }}
+              >
+                <h1 className={`text-3xl font-semibold py-4 ${darkMode ? "font-bold bg-gradient-to-br from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-b from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"}`}>
+                  <span className="font-extralight"> Let&apos;s </span> Collaborate{" "}
+                </h1>
+              </motion.div>
+
+              <p className="w-80 lg:w-96 font-semibold">
+                I'm Currently looking for new opportnities, and my inbox is always open. Whether you have question or just want to say hi, Just drop a message, I'll do my best to get back to you!
+              </p>
+
+              <div>
+                <div className={`mb-6 mt-6 flex justify-start items-start gap-7 text-center  `}>
+                  <motion.a
+                    href={socialLinks.twitter}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.3, rotate: 360 }}
+                    aria-label="Twitter"
+                  >
+                    <FaTwitter
+                      className="cursor-pointer hover:scale-110 text-blue-500 hover:text-[#01D293]"
+                      size={24}
+                    />
+                  </motion.a>
+
+                  <motion.a
+                    href={socialLinks.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.3, rotate: 360 }}
+                    aria-label="GitHub"
+                  >
+                    <FaGithub
+                      className="cursor-pointer hover:scale-110 hover:text-[#01D293]"
+                      size={24}
+                    />
+                  </motion.a>
+
+                  <motion.a
+                    href={socialLinks.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.3, rotate: 360 }}
+                    aria-label="LinkedIn"
+                  >
+                    <FaLinkedin
+                      className="cursor-pointer hover:scale-110 text-[#0063c8] hover:text-[#01D293]"
+                      size={24}
+                    />
+                  </motion.a>
+
+                  <motion.a
+                    href={socialLinks.discord}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.3, rotate: 360 }}
+                    aria-label="Discord"
+                  >
+                    <FaDiscord
+                      className="cursor-pointer hover:scale-110 text-[#5865f2] hover:text-[#01D293]"
+                      size={24}
+                    />
+                  </motion.a>
+
+                  <motion.a
+                    href={socialLinks.behance}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    whileHover={{ scale: 1.3, rotate: 360 }}
+                    aria-label="Behance"
+                  >
+                    <ImBehance2
+                      className="cursor-pointer hover:scale-110 text-blue-500 hover:text-[#01D293]"
+                      size={24}
+                    />
+                  </motion.a>
+                </div>
+              </div>
+              <div className="flex flex-col gap-y-3 font-semibold">
+                <div className="flex flex-row gap-4 justify-start items-center text-xl">
+                  <LuMail className="font-semibold"/>
+                  <span> shingaderohan96@gmail.com </span>
+                </div>
+                <div className="flex flex-row gap-4 justify-start items-center text-xl">
+                  <LuPhone />
+                  <span> +91 8788459114 </span>
+                </div>
+              </div>
+            </div>
           </motion.div>
 
           {/* Contact Form */}
           <motion.div
-            className="md:w-3/5 flex flex-col w-full p-2 "
+            className="md:w-3/6 flex flex-col w-full p-2 font-semibold [font-family:var(--font-ubuntu)]"
             initial="hidden"
             whileInView={"show"}
             variants={fadeIn('left', 0.1)}

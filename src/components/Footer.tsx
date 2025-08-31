@@ -48,7 +48,7 @@ const Footer: React.FC = () => {
   const firstName: string = name.split(' ')[0];
 
   return (
-    <div className="w-screen bg-[#222]">
+    <div className="w-screen bg-[#222] rounded-t-3xl ">
       <div
         id="footer"
         className="max-w-[1280px] mx-auto text-center p-4 py-12">

@@ -60,7 +60,7 @@ const Skills: React.FC = () => {
           variants={fadeIn('up', 0.2)}
           viewport={{ once: true, amount: 0.1 }}
         >
-          Skills
+          <span className='font-extralight'> My </span>Skills
         </motion.h1>
 
         <motion.div
@@ -71,7 +71,7 @@ const Skills: React.FC = () => {
           viewport={{ once: true, amount: 0.2 }}
         >
 
-          <div className="order-2 md:order-1 w-full md:w-auto text-center">
+          <div className="order-2 md:order-1 w-full md:w-auto text-center [font-family:var(--font-ubuntu)]">
             <div>
               {categories.map((category) => (
                 <div
