@@ -15,7 +15,6 @@ import {
   FaDiscord,
   FaTwitter,
 } from "react-icons/fa";
-import { FaArrowRightLong } from "react-icons/fa6";
 
 
 
@@ -120,9 +119,7 @@ const Contact = () => {
               className={`w-full max-w-xs md:max-w-sm h-auto mt-5 rounded-xl shadow-xl ${darkMode ? "shadow-[#000]" : ""} `}
             /> */}
             <div>
-
               <motion.div
-
                 initial={{ x: 0}}
                 animate={{x: [0,35] }}
                 transition={{
