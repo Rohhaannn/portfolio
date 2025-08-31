@@ -68,7 +68,7 @@ const Work = () => {
           variants={fadeIn('up', 0.2)}
           viewport={{ once: true, amount: 0.2 }}
         >
-          Work Experience
+          <span className="font-extralight"> Work </span>{" "}Experience
         </motion.h1>
 
         {workExperience.map((item) => {
@@ -85,6 +85,7 @@ const Work = () => {
               whileInView={"show"}
               variants={fadeIn("up", 0.2)}
               viewport={{ once: true, amount: 0.2 }}
+              className="[font-family:var(--font-ubuntu)]"
             >
               <WorkItem
                 year={`${formattedStart} - ${formattedEnd}`}

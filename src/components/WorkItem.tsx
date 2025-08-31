@@ -51,7 +51,7 @@ const WorkItem: React.FC<WorkItemProps> = ({
         </div>
         <div className="mt-4 space-y-2 text-sm text-black-600 pl-2 md:pl-6">
           {descriptionArray.map((point) => (
-            <li key={point} className="leading-tight ">{point.trim()}</li>
+            <li key={point} className="leading-normal ">{point.trim()}</li>
           ))}
         </div>
 
