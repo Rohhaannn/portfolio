@@ -136,7 +136,7 @@ const Contact = () => {
               </motion.div>
 
               <p className="w-80 lg:w-96 font-semibold">
-                I'm Currently looking for new opportnities, and my inbox is always open. Whether you have question or just want to say hi, Just drop a message, I'll do my best to get back to you!
+                I&apos;m Currently looking for new opportnities, and my inbox is always open. Whether you have question or just want to say hi, Just drop a message, I&apos;ll do my best to get back to you!
               </p>
 
               <div>
