@@ -19,7 +19,7 @@ interface MySkillsData {
   }
 }
 
-const typedData: MySkillsData = portfolioData;
+const typedData: MySkillsData = { mySkills: portfolioData.mySkills };
 
 const MySkills = () => {
 
