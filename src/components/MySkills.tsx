@@ -19,12 +19,10 @@ interface MySkillsData {
   }
 }
 
-const typedData: MySkillsData = { mySkills: portfolioData.mySkills };
-
 const MySkills = () => {
 
   const { darkMode } = useTheme();
-  const { techIcons } = typedData.mySkills;
+  const { techIcons } = (portfolioData as MySkillsData).mySkills;
 
   return (
     <div id="skills" className={`px-4 ${darkMode ? "bg-[#222] text-white" : "bg-[#ebeeee]"}`}>
