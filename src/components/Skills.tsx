@@ -87,6 +87,7 @@ const Skills: React.FC = () => {
           </div>
 
           <div className="order-1 md:order-2 flex justify-center">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src={typedData.skills.image}
               alt="Skills Character"
