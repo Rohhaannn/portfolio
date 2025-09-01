@@ -5,7 +5,6 @@ import { motion } from "framer-motion";
 import React from 'react';
 import { portfolioData } from '../data/portfolioData';
 import { fadeIn } from '../variants';
-import Image from "next/image";
 import { LuArrowRight } from "react-icons/lu";
 import Link from "next/link";
 import { useTheme } from "@/context/ThemeContext";
@@ -42,7 +41,7 @@ const About: React.FC = () => {
             variants={fadeIn('left', 0.2)}
             viewport={{ once: true, amount: 0.1 }}
           >
-            <Image
+            <img
               className={`h-auto rounded-xl shadow-xl ${darkMode ? "shadow-[#000]" : ""} `}
               src={image}
               alt="Rohan"

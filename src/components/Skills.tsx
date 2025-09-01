@@ -4,7 +4,6 @@ import React from 'react';
 import { portfolioData } from "../data/portfolioData";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
-import Image from 'next/image';
 import { useTheme } from '@/context/ThemeContext';
 
 
@@ -88,7 +87,7 @@ const Skills: React.FC = () => {
           </div>
 
           <div className="order-1 md:order-2 flex justify-center">
-            <Image
+            <img
               src={typedData.skills.image}
               alt="Skills Character"
               className={`max-w-80 lg:max-w-[22rem] rounded-xl shadow-xl ${darkMode ? "shadow-[#111] shadow-md" : ""} `}
