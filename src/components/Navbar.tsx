@@ -58,14 +58,18 @@ const Navbar: React.FC = () => {
       name: "About",
       href: "/#about",
       subItems: [
-        { name: "More About Me", href: "/about" },
-        { name: "Github Contributions", href: "/about#githubcontributions" },
+        { name: "My Profile", href: "/about#myProfile" },
+        { name: "Education", href: "/about#education"}
+
       ],
     },
     {
       name: "Skills",
       href: "/#skills",
-      subItems: [{ name: "Skills and Technologies", href: "/skillsandtech" }],
+      subItems: [
+        { name: "Skills and Technologies", href: "/skillsandtech" },
+        { name: "Github Contributions", href: "/skills#githubcontributions" },
+      ],
     },
     {
       name: "Projects",
@@ -116,6 +120,7 @@ const Navbar: React.FC = () => {
                     alt="Logo"
                     width={60}
                     height={60}
+                    priority={true}
                     onClick={scrollToTop}
                   /> :
                   <Image
@@ -124,13 +129,14 @@ const Navbar: React.FC = () => {
                     alt="Logo"
                     width={60}
                     height={60}
+                    priority={true}
                     onClick={scrollToTop}
                   />}
               </Link>
             </div>
 
             {/* Desktop Menu */}
-            <nav className="hidden md:flex items-center space-x-6">
+            <nav className="hidden md:flex items-center space-x-6 [font-family:var(--font-ubuntu)]">
               {navItems.map((item) => (
                 item.subItems ? (
                   <div key={item.name} className="relative group">
@@ -144,7 +150,7 @@ const Navbar: React.FC = () => {
                         <span className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-1.5 h-1.5 bg-violet-500 rounded-full" />
                       )}
                     </Link>
-                    <ul className={`absolute left-0 mt-4 w-72 rounded-md shadow-lg p-4 invisible opacity-0 backdrop-blur-xl group-hover:visible group-hover:opacity-100 transition-all  duration-300 ${darkMode ? "bg-black" : "bg-white"}`}>
+                    <ul className={`absolute left-0 mt-4.5 w-72 rounded-md shadow-lg p-4 invisible opacity-0 backdrop-blur-xl group-hover:visible group-hover:opacity-100 transition-all  duration-300 ${darkMode ? "bg-black" : "bg-white"}`}>
                       <div className="flex flex-row gap-2 justify-between items-center">
                         <div className="relative w-[120px] h-[210px] shrink-0 rounded-xl overflow-hidden shadow-lg">
                           <Image
@@ -173,7 +179,7 @@ const Navbar: React.FC = () => {
                         <div>
                           {item.subItems.map((subItem) => (
                             <div key={subItem.name} >
-                              <div className="w-full h-full rounded-md ">
+                              <div className="w-full h-full rounded-md">
                                 <li key={subItem.name} >
                                   <Link
                                     href={subItem.href}
@@ -237,7 +243,7 @@ const Navbar: React.FC = () => {
             </div>
           </div>
 
-          <div className="w-full">
+          <div className="w-full [font-family:var(--font-ubuntu)]">
             {/* Mobile Menu */}
             {navOpen && (
               <div
