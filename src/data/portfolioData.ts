@@ -1,6 +1,6 @@
 export const portfolioData = {
   hero: {
-    name: "ROHAN SHINGADE",
+    name: "Rohan Shingade",
     roles: [
       "REACT JS DEVELOPER",
       "FRONTEND DEVELOPER",
@@ -13,7 +13,7 @@ export const portfolioData = {
       twitter: "https://x.com/Pseudo_tsx",
       github: "https://github.com/Rohhaannn",
       linkedin: "https://www.linkedin.com/in/rohan-s-a56210165/",
-      discord: "https://discord.gg/K2eE44WzUX",
+      discord: "https://discord.com/invite/K75CEnhW4d",
       behance: "https://www.behance.net/rohhaannn",
     },
   },
@@ -27,13 +27,94 @@ export const portfolioData = {
       "Web Developer",
       "Freelancer",
     ],
-    // image: "https://project-assets-phi.vercel.app/assets/portfolio-images/cartoonDeveloper.png",
     image: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/deadlock.gif",
   },
 
+  education: {
+    schoolData: {
+      sectionTitle: "School - DKTES High-School",
+      schoolImgArray: [
+        { id: "1", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/School/Ich-rajwada.png" },
+        { id: "2", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/School/Anantrao.png" },
+        { id: "3", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/School/oldBuilding.png" },
+        { id: "4", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/School/hqdefault.jpg" },
+        { id: "5", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/School/Cyclestand.png" },
+        { id: "6", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/School/claasss.png" },
+        { id: "7", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/School/khedkarsir.png" },
+      ],
+      schoolName: "Ichalkaranji High-School Rajwada Ichalkaranji",
+      siteLink: "https://www.dkte.ac.in/",
+      schoolDescription:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, alias. Ullam dicta alias consequatur odit quae? Aspernatur doloremque culpa nisi blanditiis, natus similique reiciendis facere ducimus quis! Repudiandae qui fugit aperiam, possimus odio ex nemo eos corrupti illum eveniet modi at quod in, tempora facilis nostrum, laboriosam saepe hic? Reiciendis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, alias. Ullam dicta alias consequatur odit quae? Aspernatur doloremque culpa nisi blanditiis, natus similique reiciendis facere ducimus quis! Repudiandae qui fugit aperiam, possimus odio ex nemo eos corrupti illum eveniet modi at quod in, tempora facilis nostrum, laboriosam saepe hic? Reiciendis.",
+    },
+
+    graduationData: {
+      sectionTitle: "Graduation - Bachelor of Computer Application (BCA)",
+      gradImgArray: [
+        { id: "1", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/asc-colg/main-gate.avif" },
+        { id: "2", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/asc-colg/library.avif" },
+        { id: "3", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/asc-colg/passage.avif" },
+        { id: "4", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/asc-colg/building-passagee.avif" },
+        { id: "5", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/asc-colg/science-building.avif" },
+      ],
+      schoolName: "Dattajirao Kadam Arts, Science & Commerce College, Ichalkaranji.",
+      siteLink: "https://www.dkasc.ac.in/",
+      schoolDescription:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, alias. Ullam dicta alias consequatur odit quae? Aspernatur doloremque culpa nisi blanditiis, natus similique reiciendis facere ducimus quis! Repudiandae qui fugit aperiam, possimus odio ex nemo eos corrupti illum eveniet modi at quod in, tempora facilis nostrum, laboriosam saepe hic? Reiciendis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, alias. Ullam dicta alias consequatur odit quae? Aspernatur doloremque culpa nisi blanditiis, natus similique reiciendis facere ducimus quis! Repudiandae qui fugit aperiam, possimus odio ex nemo eos corrupti illum eveniet modi at quod in, tempora facilis nostrum, laboriosam saepe hic? Reiciendis.",
+    },
+
+    pgData: {
+      sectionTitle: "Post Graduation - Masters of Computer Application (MCA)",
+      pgImgArray: [
+        { id: "1", imgLink: "" },
+        { id: "2", imgLink: "" },
+        { id: "3", imgLink: "" },
+        { id: "4", imgLink: "" },
+      ],
+      schoolName: "K.K. Wagh Institute of Engineering Education & Research, Nashik",
+      siteLink: "https://www.kkwagh.edu.in/",
+      schoolDescription:
+        "Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, alias. Ullam dicta alias consequatur odit quae? Aspernatur doloremque culpa nisi blanditiis, natus similique reiciendis facere ducimus quis! Repudiandae qui fugit aperiam, possimus odio ex nemo eos corrupti illum eveniet modi at quod in, tempora facilis nostrum, laboriosam saepe hic? Reiciendis.Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa, alias. Ullam dicta alias consequatur odit quae? Aspernatur doloremque culpa nisi blanditiis, natus similique reiciendis facere ducimus quis! Repudiandae qui fugit aperiam, possimus odio ex nemo eos corrupti illum eveniet modi at quod in, tempora facilis nostrum, laboriosam saepe hic? Reiciendis.",
+    },
+  },
+
+  mySkills: {
+    techIcons: [
+      { id: 1, name: "C", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/C.svg" },
+      { id: 2, name: "CPP", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/cplusplus.svg" },
+      { id: 3, name: "Java", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/Java.svg" },
+      { id: 4, name: "HTML5", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/HTML5.svg" },
+      { id: 5, name: "CSS3", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/CSS3.svg" },
+      { id: 6, name: "Bootstrap", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/Bootstrap.svg" },
+      { id: 7, name: "Tailwind CSS", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/TailwindCSS.svg" },
+      { id: 8, name: "JavaScript", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/JavaScript.svg" },
+      { id: 9, name: "TypeScript", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/TypeScript.svg" },
+      { id: 10, name: "React Js", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/React.svg" },
+      { id: 11, name: "Next Js", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/Next.js.svg" },
+      { id: 12, name: "Redux", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/Redux.svg" },
+      { id: 13, name: "Node Js", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/Node.js.svg" },
+      { id: 14, name: "Express", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/Express.svg" },
+      { id: 15, name: "Postman", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/Postman.svg" },
+      { id: 16, name: "MongoDB", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/MongoDB.svg" },
+      { id: 17, name: "MySQL", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/MySQL.svg" },
+      { id: 18, name: "Oracle", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/Oracle.svg" },
+      { id: 19, name: "Postgre SQL", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/PostgresSQL.svg" },
+      { id: 20, name: "Python", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/Python.svg" },
+      { id: 21, name: "Git", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/Git.svg" },
+      { id: 22, name: "GitHub", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/GitHub.svg" },
+      { id: 23, name: "GitHub Actions", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/GitHubActions.svg" },
+      { id: 24, name: "Appwrite", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/Appwrite.svg" },
+      { id: 25, name: "Figma", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/Figma.svg" },
+      { id: 26, name: "Ubuntu", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/Ubuntu.svg" },
+      { id: 27, name: "VS Code", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/VSCode.svg" },
+      { id: 28, name: "Vercel", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/Vercel.svg" },
+    ]
+  },
+
+
   skills: {
     Frontend: [
-      { id: 1, name: "React.js" },
+      { id: 1, name: "React.js", imgLink: "" },
       { id: 2, name: "Next.js" },
       { id: 3, name: "Redux" },
       { id: 4, name: "Tailwind CSS" },
@@ -71,7 +152,6 @@ export const portfolioData = {
       { id: 1, name: "Vercel" },
       { id: 2, name: "Netlify" },
     ],
-    // image: "https://project-assets-phi.vercel.app/assets/portfolio-images/skillsCharacter.svg",
     image: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/dev.gif",
   },
 
