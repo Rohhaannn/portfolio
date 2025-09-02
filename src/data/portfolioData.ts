@@ -253,6 +253,30 @@ export const portfolioData = {
     },
   ],
 
+  projectsNew:{
+    myProjects:[
+      {
+        id: 1,
+        videoUrl: "",
+        title: "MoonCart - Premium Wooden Products E-Commerce Platform",
+        description: "MoonCart is a specialized e-commerce platform exclusively dedicated to high-quality wooden products, combining modern web technologies with sustainable commerce. Built using React, this dynamic and responsive website delivers an exceptional online shopping experience tailored specifically for wood enthusiasts and eco-conscious consumers.",
+        githubUrl: "https://github.com/username/mooncart",
+        liveLink: "https://mooncart.vercel.app/",
+        techStack: ["React.js", "Node.js", "MongoDB", "Tailwind CSS"],
+      },
+      {
+        id: 2,
+        videoUrl: "",
+        title: "React Blog Platform - Modern Content Management System",
+        description: "A sophisticated blogging platform built with cutting-edge web technologies, designed to provide content creators with a seamless and intuitive publishing experience. Powered by React and Vite for lightning-fast performance, this dynamic application combines modern frontend development with robust backend integration to deliver a complete content management solution.",
+        githubUrl: "https://github.com/Rohhaannn/React-Blog-App/tree/main/12MegaBlog",
+        liveLink: "https://react-blog-app-iota.vercel.app/",
+        techStack: ["React.js", "Node.js", "MongoDB", "Tailwind CSS"],
+      },
+    ]
+  },
+
+
   projects: {
     major: [
       {
