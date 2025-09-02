@@ -41,6 +41,7 @@ const About: React.FC = () => {
             variants={fadeIn('left', 0.2)}
             viewport={{ once: true, amount: 0.1 }}
           >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               className={`h-auto rounded-xl shadow-xl ${darkMode ? "shadow-[#000]" : ""} `}
               src={image}
