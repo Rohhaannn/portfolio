@@ -1,5 +1,4 @@
 "use client"
-
 import React from 'react';
 import { portfolioData } from "../data/portfolioData";
 import { motion } from "framer-motion";
@@ -20,7 +19,7 @@ interface MySkillsData {
 }
 
 const MySkills = () => {
-
+  
   const { darkMode } = useTheme();
   const { techIcons } = (portfolioData as MySkillsData).mySkills;
 
@@ -36,7 +35,6 @@ const MySkills = () => {
         >
           <span className='font-extralight'> My </span> Skills
         </motion.h1>
-
         <motion.div
           className="flex flex-col lg:flex-row justify-center items-center gap-14 md:gap-36"
           initial="hidden"
@@ -49,7 +47,6 @@ const MySkills = () => {
               {techIcons.map((skill) => (
                 <span
                   key={skill.id}
-
                   className={` flex flex-col gap-2 justify-center items-center p-4 hover:border hover:border-blue-500 rounded-xl transition-all duration-300 transform hover:scale-110 shadow-lg ${darkMode ? "bg-[#333] text-white" : "bg-gray-300 text-black"}`}
                 >
                   <Image
