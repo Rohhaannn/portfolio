@@ -19,7 +19,7 @@ interface MySkillsData {
 }
 
 const MySkills = () => {
-  
+
   const { darkMode } = useTheme();
   const { techIcons } = (portfolioData as MySkillsData).mySkills;
 
@@ -47,7 +47,7 @@ const MySkills = () => {
               {techIcons.map((skill) => (
                 <span
                   key={skill.id}
-                  className={` flex flex-col gap-2 justify-center items-center p-4 hover:border hover:border-blue-500 rounded-xl transition-all duration-300 transform hover:scale-110 shadow-lg ${darkMode ? "bg-[#333] text-white" : "bg-gray-300 text-black"}`}
+                  className={` flex flex-col gap-2 justify-center items-center p-4 rounded-xl hover:border hover:border-blue-500 hover:scale-110 transition-all duration-300 transform  shadow-lg ${darkMode ? "bg-[#333] text-white" : "bg-gray-300 text-black"}`}
                 >
                   <Image
                     src={skill.imgLink}
