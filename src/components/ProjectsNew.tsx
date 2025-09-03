@@ -23,9 +23,9 @@ const ProjectsNew = () => {
 
   return (
     <div id="projects">
-      <div className="ma-w-[1280px] mx-auto">
+      <div className="max-w-[1280px] mx-auto">
         <motion.h1
-          className={`text-4xl h-12 mb-10 font-bold text-center text-[#001b5e] cursor-default ${
+          className={`text-4xl h-12  font-bold text-center text-[#001b5e] cursor-default ${
             darkMode
               ? "font-bold bg-gradient-to-br from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text"
               : "font-bold bg-gradient-to-b from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"
@@ -45,18 +45,18 @@ const ProjectsNew = () => {
           variants={fadeIn("left", 0.2)}
           viewport={{ once: true, amount: 0.2 }}
         >
-          <div className="flex flex-col gap-10 ">
+          <div className="flex flex-col gap-5">
             <div className="p-4 py-6 ">
-              <div className="flex flex-col gap-8 justify-between items-center p-2">
+              <div className="flex flex-col gap-8 justify-between items-center p-2 ">
                 {myProjects.map((project, index) => (
                   <div
                     key={project.id}
-                    className={`w-96 lg:w-full px-6 py-6  rounded-xl shadow-lg ${darkMode ? " text-white" : " text-black"}`}
+                    className={`w-96 lg:w-full px-6 py-6 border border-gray-600 rounded-xl shadow-lg ${darkMode ? " text-white" : " text-black"}`}
                   >
                     <div className="flex flex-col gap-6 justify-center">
 
                       <div className={`flex flex-col lg:flex-row gap-8 justify-center items-center ${index % 2 !== 0 ? "lg:flex-row-reverse":""}`}>
-                        <div className='w-80 lg:w-[450px] h-80 mt-10 rounded-xl p-1 border'>
+                        <div className='w-80 lg:w-[550px] h-80 mt-10 rounded-xl p-1 border'>
                           <video
                             src={project.videoUrl}
                             controls
@@ -80,7 +80,7 @@ const ProjectsNew = () => {
                             </a>
 
                             <a href={project.liveLink} target="_blank" className='w-full flex items-center gap-2 justify-center rounded-lg bg-black px-2 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline-offset-2 focus-visible:outline-black border'>
-                              Live link <LuArrowUpRight size={18} />
+                              Live Link <LuArrowUpRight size={18} />
                             </a>
                           </div>
 
@@ -90,7 +90,7 @@ const ProjectsNew = () => {
                       {/* tech stack */}
                       <div>
                         {project.techStack.length > 0 && (
-                          <div className="mt-4 pl-2 md:pl-6">
+                          <div className="pl-2 md:pl-6">
                             <span className="text-sm font-bold text-black-600">Tech Stack:</span>
                             <div className="flex flex-wrap gap-2 mt-1">
                               {project.techStack.map((tech) => (
@@ -114,20 +114,20 @@ const ProjectsNew = () => {
                   </div>
                 ))}
               </div>
-
             </div>
 
-            <div className="flex flex-row gap-2 justify-center items-center  rounded-lg py-2">
-
-              <a
-                href="/moreProjects"
-                target="_blank"
-                className='w-80 lg:w-full flex items-center gap-2 justify-center rounded-lg bg-black px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline-offset-2 focus-visible:outline-black border'
-              >
-                View More Project
-                <LuArrowUpRight size={18} />
-              </a>
+            <div className="px-6">
+              <div className="flex flex-row gap-2 justify-center items-center rounded-lg py-2">
+                <a
+                  href="/moreProjects"
+                  className='w-80 lg:w-full flex items-center gap-2 justify-center rounded-lg bg-black px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline-offset-2 focus-visible:outline-black border border-gray-600'
+                >
+                  View More Project
+                  <LuArrowUpRight size={18} />
+                </a>
+              </div>
             </div>
+
           </div>
         </motion.div>
       </div>
