@@ -75,8 +75,9 @@ const Navbar: React.FC = () => {
       name: "Projects",
       href: "/#projects",
       subItems: [
-        { name: "Ongoing Projects", href: "/projects#ongoingprojects" },
-        { name: "Upcoming Projects", href: "/projects#upcomingprojects" },
+        { name: "More Projects", href: "/projects/moreProjects" },
+        { name: "Ongoing Projects", href: "/projects/OngoingProjects" },
+        { name: "Upcoming Projects", href: "/projects/UpcomingProjects" },
       ],
     },
     {
