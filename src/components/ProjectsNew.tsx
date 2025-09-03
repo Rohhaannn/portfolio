@@ -23,7 +23,7 @@ const ProjectsNew = () => {
 
   return (
     <div id="projects">
-      <div className="max-w-[1280px] mx-auto">
+      <div className="max-w-[1280px] mx-auto my-20">
         <motion.h1
           className={`text-4xl h-12  font-bold text-center text-[#001b5e] cursor-default ${
             darkMode
@@ -51,20 +51,27 @@ const ProjectsNew = () => {
                 {myProjects.map((project, index) => (
                   <div
                     key={project.id}
-                    className={`w-96 lg:w-full px-6 py-6 border border-gray-600 rounded-xl shadow-lg ${darkMode ? " text-white" : " text-black"}`}
+                    className={`w-96 lg:w-full px-6 py-6 border border-gray-600 rounded-xl shadow-lg ${darkMode ? "bg-[#222] text-white" : "bg-gray-300 text-black"}`}
                   >
                     <div className="flex flex-col gap-6 justify-center">
 
                       <div className={`flex flex-col lg:flex-row gap-8 justify-center items-center ${index % 2 !== 0 ? "lg:flex-row-reverse":""}`}>
-                        <div className='w-80 lg:w-[550px] h-80 mt-10 rounded-xl p-1 border'>
-                          <video
-                            src={project.videoUrl}
-                            controls
-                            autoPlay
-                            loop
-                            muted
-                            className="w-full h-full object-cover rounded-xl"
-                          />
+                        <div className='w-80 lg:w-[550px] h-80 mt-10 rounded-xl p-1 '>
+                            <video
+                              src={project.videoUrl}
+                              controls
+                              autoPlay
+                              loop
+                              className="w-full h-full object-cover rounded-xl"
+                            >
+                              <track
+                                kind="captions"
+                                src=""
+                                srcLang="en"
+                                label="English captions"
+                                default
+                              />
+                            </video>
                         </div>
                         <div className='flex flex-col gap-3 justify-between items-center'>
                           <h1 className='w-96 lg:w-[670px] text-2xl lg:text-3xl px-6'>
@@ -119,7 +126,7 @@ const ProjectsNew = () => {
             <div className="px-6">
               <div className="flex flex-row gap-2 justify-center items-center rounded-lg py-2">
                 <a
-                  href="/moreProjects"
+                  href="/projects/moreProjects"
                   className='w-80 lg:w-full flex items-center gap-2 justify-center rounded-lg bg-black px-6 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-600 focus-visible:outline-offset-2 focus-visible:outline-black border border-gray-600'
                 >
                   View More Project
