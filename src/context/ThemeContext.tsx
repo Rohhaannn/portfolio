@@ -22,9 +22,9 @@ const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
   const [darkMode, setDarkMode] = useState<boolean>(true);
 
-  const toggleDark = () => {
+  const toggleDark = React.useCallback(() => {
     setDarkMode((prevMode) => !prevMode);
-  };
+  }, []);
 
   useEffect(() => {
     if (darkMode) {
