@@ -119,21 +119,11 @@ const Contact = () => {
               className={`w-full max-w-xs md:max-w-sm h-auto mt-5 rounded-xl shadow-xl ${darkMode ? "shadow-[#000]" : ""} `}
             /> */}
             <div>
-              <motion.div
-                initial={{ x: 0}}
-                animate={{x: [0,35] }}
-                transition={{
-                  duration: 0.7,
-                  delay: 1,
-                  repeat: Infinity,
-                  repeatType: "reverse",
-                  ease: "easeInOut",
-                }}
-              >
+              <div>
                 <h1 className={`text-3xl font-semibold py-4 ${darkMode ? "font-bold bg-gradient-to-br from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-b from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"}`}>
                   <span className="font-extralight"> Let&apos;s </span> Collaborate{" "}
                 </h1>
-              </motion.div>
+              </div>
 
               <p className="w-80 lg:w-96 font-semibold">
                 I&apos;m Currently looking for new opportnities, and my inbox is always open. Whether you have question or just want to say hi, Just drop a message, I&apos;ll do my best to get back to you!
