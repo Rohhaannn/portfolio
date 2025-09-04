@@ -40,7 +40,7 @@ const Education = () => {
         <div className="w-full md:w-1/2 flex flex-col items-center">
           <div className="w-full">
             {mainImgArray
-              .filter((_: any, index: number) => index === currentIndex)
+              .filter((_, index: number) => index === currentIndex)
               .map((item: ImageItem) => (
                 <Image
                   key={item.id}
