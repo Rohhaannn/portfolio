@@ -30,6 +30,18 @@ export const portfolioData = {
     image: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/deadlock.gif",
   },
 
+  myProfile:{
+    imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/profilepic/RohanFormal.png",
+    designation: "Frontend Developer",
+    slogan:" Turning ideas into reality, one pixel at a time",
+    socialLinks:[
+      {id:1, name:"Linkedin", link:""},
+      {id:2, name:"Twitter", link:""},
+      {id:3, name:"GitHub", link:""},
+      {id:4, name:"Discord", link:""}
+    ],
+  },
+
   education: {
     schoolData: {
       sectionTitle: "School - DKTES High-School",
@@ -110,7 +122,6 @@ export const portfolioData = {
       { id: 28, name: "Vercel", imgLink: "https://project-assets-phi.vercel.app/assets/nextjs-portfolio/tech-icons/Vercel.svg" },
     ]
   },
-
 
   skills: {
     Frontend: [
