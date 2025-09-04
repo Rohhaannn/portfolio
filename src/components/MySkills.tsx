@@ -24,7 +24,7 @@ const MySkills = () => {
   const { techIcons } = (portfolioData as MySkillsData).mySkills;
 
   return (
-    <div id="skills" className={`px-4 ${darkMode ? "bg-[#222] text-white" : "bg-[#ebeeee]"}`}>
+    <div id="skills" className={`px-4 [font-family:var(--font-ubuntu)] ${darkMode ? "bg-[#222] text-white" : "bg-[#ebeeee]"}`}>
       <div className="max-w-[1280px] mx-auto p-4">
         <motion.h1
           className={`text-4xl mb-10 font-bold text-center text-[#001b5e] cursor-default ${darkMode ? "font-bold bg-gradient-to-br from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-b from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"}`}
