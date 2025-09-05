@@ -3,20 +3,18 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
 import axios from "axios";
 import { z } from "zod";
-import { LuSend, LuCircleCheckBig,LuMail, LuPhone } from "react-icons/lu";
+import { LuSend, LuCircleCheckBig, LuUser, LuMail, LuPhone } from "react-icons/lu";
 import { motion } from "framer-motion";
 import { fadeIn } from "../variants";
 import { portfolioData } from '../data/portfolioData';
-import { ImBehance2 } from "react-icons/im";
 import { useTheme } from "@/context/ThemeContext";
 import {
-  FaGithub,
   FaLinkedin,
-  FaDiscord,
+  FaGithub,
   FaTwitter,
+  FaDiscord,
 } from "react-icons/fa";
-
-
+import Link from "next/link";
 
 const contactFormSchema = z.object({
   name: z.string().min(1, { message: "Name is required." }),
@@ -30,12 +28,25 @@ type FormData = z.infer<typeof contactFormSchema>;
 
 type FormErrors = Partial<Record<keyof FormData, string>> & { general?: string };
 
+const IconComponent = ({ type }: { type: string }) => {
+  switch (type) {
+    case "linkedin":
+      return <FaLinkedin className="text-[#0063c8]" />;
+    case "github":
+      return <FaGithub className="text-white" />;
+    case "twitter":
+      return <FaTwitter className="text-blue-500" />;
+    case "discord":
+      return <FaDiscord className="text-[#5865f2]" />;
+    default:
+      return null;
+  }
+};
+
 const Contact = () => {
 
   const { darkMode } = useTheme();
-
-  const {formEndpoint} = portfolioData.contact;
-  const { socialLinks } = portfolioData.hero;
+  const { formEndpoint } = portfolioData.contact;
 
   const [formData, setFormData] = useState<FormData>({
     name: "",
@@ -111,101 +122,44 @@ const Contact = () => {
             variants={fadeIn('right', 0.1)}
             viewport={{ once: true, amount: 0.3 }}
           >
-            {/* <Image
-              src={image}
-              alt="Contact"
-              width={320}
-              height={320}
-              className={`w-full max-w-xs md:max-w-sm h-auto mt-5 rounded-xl shadow-xl ${darkMode ? "shadow-[#000]" : ""} `}
-            /> */}
-            <div>
+            <div className="px-10 py-4 bg-[#181B24] rounded-4xl">
               <div>
                 <h1 className={`text-3xl font-semibold py-4 ${darkMode ? "font-bold bg-gradient-to-br from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-b from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"}`}>
-                  <span className="font-extralight"> Let&apos;s </span> Collaborate{" "}
+                  <span className="font-extralight"> {portfolioData.contact.heading} </span>
                 </h1>
               </div>
 
-              <p className="w-80 lg:w-96 font-semibold">
-                I&apos;m Currently looking for new opportnities, and my inbox is always open. Whether you have question or just want to say hi, Just drop a message, I&apos;ll do my best to get back to you!
-              </p>
+              <div className="flex flex-col gap-8 py-4">
+                <div className="flex flex-row gap-5 justify-start items-center">
+                  <span className="bg-[#21324F] p-4 rounded-full">
+                    <LuUser size={24} className="text-[#3e83f2]" />
+                  </span>
+                  <div className="flex flex-col gap-1">
+                    <span className="text-xl"> {portfolioData.contact.name} </span>
+                    <span className="text-sm text-gray-400"> {portfolioData.contact.designation}</span>
+                  </div>
+                </div>
 
-              <div>
-                <div className={`mb-6 mt-6 flex justify-start items-start gap-7 text-center  `}>
-                  <motion.a
-                    href={socialLinks.twitter}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.3, rotate: 360 }}
-                    aria-label="Twitter"
-                  >
-                    <FaTwitter
-                      className="cursor-pointer hover:scale-110 text-blue-500 hover:text-[#01D293]"
-                      size={24}
-                    />
-                  </motion.a>
-
-                  <motion.a
-                    href={socialLinks.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.3, rotate: 360 }}
-                    aria-label="GitHub"
-                  >
-                    <FaGithub
-                      className="cursor-pointer hover:scale-110 hover:text-[#01D293]"
-                      size={24}
-                    />
-                  </motion.a>
-
-                  <motion.a
-                    href={socialLinks.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.3, rotate: 360 }}
-                    aria-label="LinkedIn"
-                  >
-                    <FaLinkedin
-                      className="cursor-pointer hover:scale-110 text-[#0063c8] hover:text-[#01D293]"
-                      size={24}
-                    />
-                  </motion.a>
-
-                  <motion.a
-                    href={socialLinks.discord}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.3, rotate: 360 }}
-                    aria-label="Discord"
-                  >
-                    <FaDiscord
-                      className="cursor-pointer hover:scale-110 text-[#5865f2] hover:text-[#01D293]"
-                      size={24}
-                    />
-                  </motion.a>
-
-                  <motion.a
-                    href={socialLinks.behance}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.3, rotate: 360 }}
-                    aria-label="Behance"
-                  >
-                    <ImBehance2
-                      className="cursor-pointer hover:scale-110 text-blue-500 hover:text-[#01D293]"
-                      size={24}
-                    />
-                  </motion.a>
+                <div className="flex flex-row gap-5 justify-start items-center">
+                  <span className="bg-[#21324F] p-4 rounded-full">
+                    <LuMail size={24} className="text-[#3e83f2]" />
+                  </span>
+                  <div className="flex flex-col gap-1">
+                    <span className="text-xl"> {portfolioData.contact.email} </span>
+                    <span className="text-sm text-gray-400"> {portfolioData.contact.subText} </span>
+                  </div>
                 </div>
               </div>
-              <div className="flex flex-col gap-y-3 font-semibold">
-                <div className="flex flex-row gap-4 justify-start items-center text-xl">
-                  <LuMail className="font-semibold"/>
-                  <span> shingaderohan96@gmail.com </span>
-                </div>
-                <div className="flex flex-row gap-4 justify-start items-center text-xl">
-                  <LuPhone />
-                  <span> +91 8788459114 </span>
-                </div>
+
+              <div className="grid grid-cols-2 gap-5 text-center py-6 cursor-pointer">
+                {portfolioData.contact.socialLinks.map((socialLink) => (
+                  <Link key={socialLink.id} href={socialLink.link} className="w-36 flex flex-row gap-4 px-6 py-2 items-center rounded-xl bg-[#21324F] hover:bg-[#243249]">
+                    <IconComponent type={socialLink.type} />
+                    <span className="text-sm">
+                      {socialLink.type.charAt(0).toUpperCase() + socialLink.type.slice(1)}
+                    </span>
+                  </Link>
+                ))}
               </div>
             </div>
           </motion.div>
@@ -223,7 +177,7 @@ const Contact = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                   {["name", "contact"].map((field) => (
                     <div key={field} className="flex flex-col w-full">
-                      <label htmlFor={field} className={`uppercase text-sm font-medium py-2 hover:underline cursor-pointer ${darkMode ? "text-blue-600" : "text-[#001b5e]"}  ${errors[field as keyof FormData] ? "text-red-500" : ""}`}>
+                      <label htmlFor={field} className={`uppercase text-sm font-medium py-2 hover:underline cursor-pointer ${darkMode ? "text-blue-600" : "text-[#001b5e]"} ${errors[field as keyof FormData] ? "text-red-500" : ""}`}>
                         {field === "contact" ? "Contact Number" : field.charAt(0).toUpperCase() + field.slice(1)}
                       </label>
                       <input

@@ -634,7 +634,35 @@ export const portfolioData = {
   contact: {
     image: "https://project-assets-phi.vercel.app/assets/portfolio-images/contact.png",
     formEndpoint: "https://getform.io/f/bmdpmnna",
+    heading: "Let's Collaborate",
+    name: "Rohan Shingade",
+    designation: "Frontend Developer",
+    email:"shingaderohan96@gmail.com",
+    subText:"Available for freelance work ",
+    socialLinks: [
+      {
+        id: "twitter-link",
+        type: "twitter",
+        link: "https://twitter.com/i_m_rohaannn",
+      },
+      {
+        id: "github-link",
+        type: "github",
+        link: "https://github.com/Rohhaannn",
+      },
+      {
+        id: "linkedin-link",
+        type: "linkedin",
+        link: "https://www.linkedin.com/in/rohan-s-a56210165/",
+      },
+      {
+        id: "discord-link",
+        type: "discord",
+        link: "https://discord.gg/K2eE44WzUX",
+      },
+    ]
   },
+
 
   footer: {
     name: "Rohan Shingade",
