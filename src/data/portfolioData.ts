@@ -292,7 +292,7 @@ export const portfolioData = {
       {
         id: 1,
         type: "major",
-        videoUrl: "",
+        videoUrl: "https://www.example.com",
 
         title: "MoonCart - Premium Wooden Products E-Commerce Platform",
 
@@ -319,7 +319,7 @@ export const portfolioData = {
       {
         id: 2,
         type: "major",
-        videoUrl: "",
+        videoUrl: "https://www.example.com",
 
         title: "React Blog Platform - Modern Content Management System",
 
@@ -347,7 +347,7 @@ export const portfolioData = {
       {
         id: 3,
         type: "major",
-        videoUrl: "",
+        videoUrl: "https://www.example.com",
 
         title: "School Management Dashboard - Comprehensive Educational Administration Platform",
 
@@ -376,7 +376,7 @@ export const portfolioData = {
       {
         id: 4,
         type: "mini",
-        videoUrl: "",
+        videoUrl: "https://www.example.com",
 
         title: "VirtualR - Immersive Virtual Reality Landing Page",
 
@@ -405,7 +405,7 @@ export const portfolioData = {
       {
         id: 5,
         type: "mini",
-        videoUrl: "",
+        videoUrl: "https://www.example.com",
 
         title: "GitHub Finder - Developer Profile Discovery Platform",
 
@@ -434,7 +434,7 @@ export const portfolioData = {
       {
         id: 6,
         type: "mini",
-        videoUrl: "",
+        videoUrl: "https://www.example.com",
 
         title: "Redux Todo Manager - Advanced Task Management Application",
 
@@ -463,7 +463,7 @@ export const portfolioData = {
       {
         id: 7,
         type: "mini",
-        videoUrl: "",
+        videoUrl: "https://www.example.com",
 
         title: "Context Todo Manager - Persistent Task Management System",
 
@@ -492,7 +492,7 @@ export const portfolioData = {
       {
         id: 8,
         type: "mini",
-        videoUrl: "",
+        videoUrl: "https://www.example.com",
 
         title: "Secure Password Generator - Advanced Cryptographic Utility Tool",
 
@@ -521,7 +521,7 @@ export const portfolioData = {
       {
         id: 9,
         type: "mini",
-        videoUrl: "",
+        videoUrl: "https://www.example.com",
 
         title: "Global Currency Converter - Real-Time Exchange Rate Application",
 
