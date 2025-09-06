@@ -105,7 +105,7 @@ const Contact = () => {
     <div id="contact" className={`w-screen pb-16 ${darkMode ? "bg-[#111] text-white" : ""} `}>
       <div className="max-w-[1280px] mx-auto">
         <motion.h1
-          className={`text-4xl font-bold text-center text-[#001b5e] mb-2 md:pl-20 cursor-default ${darkMode ? "font-bold bg-gradient-to-br from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-b from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"} `}
+          className={`text-4xl font-bold text-center text-[#001b5e] mb-5 md:pl-20 cursor-default ${darkMode ? "font-bold bg-gradient-to-br from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-b from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"} `}
           initial="hidden"
           whileInView={"show"}
           variants={fadeIn('up', 0.2)}
@@ -116,16 +116,16 @@ const Contact = () => {
 
         <div className="max-w-[1040px] mx-auto flex flex-col md:flex-row items-center">
           <motion.div
-            className="md:w-1/2 flex justify-center md:justify-start mb-2 md:mb-0 [font-family:var(--font-ubuntu)]"
+            className="md:w-1/2  px-10 flex justify-center md:justify-start mb-2 md:mb-0 [font-family:var(--font-ubuntu)]"
             initial="hidden"
             whileInView={"show"}
             variants={fadeIn('right', 0.1)}
             viewport={{ once: true, amount: 0.3 }}
           >
-            <div className="px-10 py-4 bg-[#181B24] rounded-4xl">
+            <div className="w-96 lg:w-full px-10 py-4 bg-[#181B24] rounded-4xl">
               <div>
                 <h1 className={`text-3xl font-semibold py-4 ${darkMode ? "font-bold bg-gradient-to-br from-[#2761f3] to-[#a603f8] text-transparent bg-clip-text" : "font-bold bg-gradient-to-b from-[#001b5e] to-[#020bf9] text-transparent bg-clip-text"}`}>
-                  <span className="font-extralight"> {portfolioData.contact.heading} </span>
+                  <span className="font-extralight sm:block hidden"> {portfolioData.contact.heading} </span>
                 </h1>
               </div>
 
@@ -135,8 +135,8 @@ const Contact = () => {
                     <LuUser size={24} className="text-[#3e83f2]" />
                   </span>
                   <div className="flex flex-col gap-1">
-                    <span className="text-xl"> {portfolioData.contact.name} </span>
-                    <span className="text-sm text-gray-400"> {portfolioData.contact.designation}</span>
+                    <span className="text-sm lg:text-xl"> {portfolioData.contact.name} </span>
+                    <span className="text-[12px] lg:text-sm text-gray-400"> {portfolioData.contact.designation}</span>
                   </div>
                 </div>
 
@@ -145,8 +145,8 @@ const Contact = () => {
                     <LuMail size={24} className="text-[#3e83f2]" />
                   </span>
                   <div className="flex flex-col gap-1">
-                    <span className="text-xl"> {portfolioData.contact.email} </span>
-                    <span className="text-sm text-gray-400"> {portfolioData.contact.subText} </span>
+                    <span className="text-sm lg:text-xl"> {portfolioData.contact.email} </span>
+                    <span className="text-[12px] lg:text-sm text-gray-400"> {portfolioData.contact.subText} </span>
                   </div>
                 </div>
               </div>
