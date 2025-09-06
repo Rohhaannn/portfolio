@@ -66,8 +66,7 @@ const Education = () => {
                   alt={`Thumbnail ${item.id}`}
                   width={200}
                   height={150}
-                  objectFit="cover"
-                  className="rounded-md"
+                  className="rounded-md object-cover"
                 />
                 {currentIndex === index && (
                   <div className="absolute inset-0 bg-blue-500 opacity-30 rounded-md"></div>
