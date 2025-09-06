@@ -53,7 +53,7 @@ const Navbar: React.FC = () => {
   const socialLinks = (portfolioData as Data).hero.socialLinks;
 
   const navItems: NavItem[] = [
-    { name: "Home", href: "/#main" },
+
     {
       name: "About",
       href: "/#about",
