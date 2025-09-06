@@ -116,20 +116,18 @@ const Navbar: React.FC = () => {
               <Link href="/" className="flex items-center space-x-2 mb-1 py-1">
                 {darkMode ?
                   <Image
-                    className="lg:w-20"
                     src="https://project-assets-phi.vercel.app/assets/portfolio-images/logo/rohanWhite.png"
                     alt="Logo"
-                    width={60}
-                    height={60}
+                    width={80}
+                    height={20}
                     priority={true}
                     onClick={scrollToTop}
                   /> :
                   <Image
-                    className="lg:w-20"
                     src="https://project-assets-phi.vercel.app/assets/portfolio-images/logo/rohanLogo.png"
                     alt="Logo"
-                    width={60}
-                    height={60}
+                    width={80}
+                    height={20}
                     priority={true}
                     onClick={scrollToTop}
                   />}
